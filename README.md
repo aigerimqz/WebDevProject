@@ -1,9 +1,12 @@
-**Project Name**
-*Description:*
+# Project Name  
 
 
-**Team Members:**
-🔹 Aigerim Manat
-🔹 Raimbek Ayaulym
-🔹 Abisheva Yasmin
+## Description:
+coming soon  
+
+
+## Team Members:  
+🔹 Aigerim Manat  
+🔹 Raimbek Ayaulym  
+🔹 Abisheva Yasmin  
 
