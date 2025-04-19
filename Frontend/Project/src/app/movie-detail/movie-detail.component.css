@@ -1,0 +1,18 @@
+.container {
+    max-width: 1020px;
+    margin: 50px auto;
+}
+.movie__detail {
+    display: flex;
+    justify-content: space-between;
+    
+}
+.movie__img img{
+    width: 350px;
+}
+.movie__info {
+    padding-left: 50px;
+}
+.movie__info h1{
+    font-size: 36px;
+}

@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Movie } from '../../models';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { MoviesService } from '../services/movies.service';
 
 @Component({
   selector: 'app-movies',
@@ -10,66 +11,14 @@ import { Router } from '@angular/router';
   templateUrl: './movies.component.html',
   styleUrl: './movies.component.css'
 })
-export class MoviesComponent {
+export class MoviesComponent implements OnInit{
   //just for example i create this part of json 
-  movies: Movie[] = [
-    {
-      id: 1,
-      title: "Captain America: Brave New World",
-      description: "Новый президент США Таддеус Росс решает назначить Капитана Америку на официальную должность. Но в прошлом между ними были разногласия, и Сэм сомневается, что это хорошая идея. Этим же вечером на президента совершается покушение. Уилсон уверен, что предатель скрывается среди ближайшего окружения Росса.",
-      genre: 'action',
-      release_year: 2025,
-      image_url: 'https://m.media-amazon.com/images/M/MV5BNDRjY2E0ZmEtN2QwNi00NTEwLWI3MWItODNkMGYwYWFjNGE0XkEyXkFqcGc@._V1_.jpg'
+  movies: Movie[] = []
+  constructor(private router: Router, private moviesService: MoviesService){}
 
-    },
-    {
-      id: 2,
-      title: "Captain America: Brave New World",
-      description: "Новый президент США Таддеус Росс решает назначить Капитана Америку на официальную должность. Но в прошлом между ними были разногласия, и Сэм сомневается, что это хорошая идея. Этим же вечером на президента совершается покушение. Уилсон уверен, что предатель скрывается среди ближайшего окружения Росса.",
-      genre: 'action',
-      release_year: 2025,
-      image_url: 'https://m.media-amazon.com/images/M/MV5BNDRjY2E0ZmEtN2QwNi00NTEwLWI3MWItODNkMGYwYWFjNGE0XkEyXkFqcGc@._V1_.jpg'
-
-    },
-    {
-      id: 3,
-      title: "Captain America: Brave New World",
-      description: "Новый президент США Таддеус Росс решает назначить Капитана Америку на официальную должность. Но в прошлом между ними были разногласия, и Сэм сомневается, что это хорошая идея. Этим же вечером на президента совершается покушение. Уилсон уверен, что предатель скрывается среди ближайшего окружения Росса.",
-      genre: 'action',
-      release_year: 2025,
-      image_url: 'https://m.media-amazon.com/images/M/MV5BNDRjY2E0ZmEtN2QwNi00NTEwLWI3MWItODNkMGYwYWFjNGE0XkEyXkFqcGc@._V1_.jpg'
-
-    },
-    {
-      id: 4,
-      title: "Captain America: Brave New World",
-      description: "Новый президент США Таддеус Росс решает назначить Капитана Америку на официальную должность. Но в прошлом между ними были разногласия, и Сэм сомневается, что это хорошая идея. Этим же вечером на президента совершается покушение. Уилсон уверен, что предатель скрывается среди ближайшего окружения Росса.",
-      genre: 'action',
-      release_year: 2025,
-      image_url: 'https://m.media-amazon.com/images/M/MV5BNDRjY2E0ZmEtN2QwNi00NTEwLWI3MWItODNkMGYwYWFjNGE0XkEyXkFqcGc@._V1_.jpg'
-
-    },
-    {
-      id: 5,
-      title: "Captain America: Brave New World",
-      description: "Новый президент США Таддеус Росс решает назначить Капитана Америку на официальную должность. Но в прошлом между ними были разногласия, и Сэм сомневается, что это хорошая идея. Этим же вечером на президента совершается покушение. Уилсон уверен, что предатель скрывается среди ближайшего окружения Росса.",
-      genre: 'action',
-      release_year: 2025,
-      image_url: 'https://m.media-amazon.com/images/M/MV5BNDRjY2E0ZmEtN2QwNi00NTEwLWI3MWItODNkMGYwYWFjNGE0XkEyXkFqcGc@._V1_.jpg'
-
-    },
-    {
-      id: 6,
-      title: "Captain America: Brave New World",
-      description: "Новый президент США Таддеус Росс решает назначить Капитана Америку на официальную должность. Но в прошлом между ними были разногласия, и Сэм сомневается, что это хорошая идея. Этим же вечером на президента совершается покушение. Уилсон уверен, что предатель скрывается среди ближайшего окружения Росса.",
-      genre: 'action',
-      release_year: 2025,
-      image_url: 'https://m.media-amazon.com/images/M/MV5BNDRjY2E0ZmEtN2QwNi00NTEwLWI3MWItODNkMGYwYWFjNGE0XkEyXkFqcGc@._V1_.jpg'
-
-    }
-  ]
-  constructor(private router: Router){}
-
+  ngOnInit(): void {
+    this.movies = this.moviesService.getAllMovies();
+  }
   goToDetail(movieId: number): void {
     this.router.navigate(['/movies', movieId]);
   }

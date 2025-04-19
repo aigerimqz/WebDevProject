@@ -1,1 +1,16 @@
-<p>movie-detail works!</p>
+<div class="container">
+    <section id="movie-detail">
+        <div *ngIf="movie" class="movie__detail">
+            <div class="movie__img">
+                <img [src]="movie.image_url" alt="">
+            </div>
+            <div class="movie__info">
+                <h1>{{movie.title}}</h1>
+                <hr>
+                <p><strong>Release year: </strong>{{movie.release_year}}</p>
+                <p><strong>Genre: </strong>{{movie.genre}}</p>
+                <p>{{movie.description}}</p>
+            </div>
+        </div>
+    </section>
+</div>
