@@ -5,7 +5,7 @@
                 <div class="img__part">
                     <img [src]="movie.image_url" alt="">
                     <div class="overlay">
-                        <button class="buy__btn">Buy Ticket</button>
+                        <button class="buy__btn" (click)="goToDetail(movie.id)" >Buy Ticket</button>
                     </div>
                 </div>
                 

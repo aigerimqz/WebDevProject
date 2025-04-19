@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Movie } from '../../models';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-movies',
@@ -67,5 +68,9 @@ export class MoviesComponent {
 
     }
   ]
+  constructor(private router: Router){}
 
+  goToDetail(movieId: number): void {
+    this.router.navigate(['/movies', movieId]);
+  }
 }
