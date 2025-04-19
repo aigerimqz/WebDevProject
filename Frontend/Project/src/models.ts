@@ -11,5 +11,5 @@ export interface Cinema {
     id: number;
     name: string;
     location: string;
-    
+    image_url: string;
 }

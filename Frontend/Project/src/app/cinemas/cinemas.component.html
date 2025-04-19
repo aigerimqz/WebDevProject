@@ -1,1 +1,20 @@
-<p>cinemas works!</p>
+<div class="container">
+    <section id="cinemas">
+        <div class="cinema-list">
+            <div class="cinema-item" *ngFor="let cinema of cinemas"
+            [style.backgroundImage]="'url(' + cinema.image_url + ')'">
+                
+                
+                <div class="cinema__info">
+                    <h2>{{cinema.name}}</h2>
+                    <!-- <img src="" alt=""> -->
+                    <p>{{cinema.location}}</p>
+                    <button class="cinema__btn">More</button>
+                </div>
+
+                
+                
+            </div>
+        </div>
+    </section>
+</div>
