@@ -21,7 +21,7 @@
 }
 .movie-card h2{
     font-size: 16px;
-    padding-top: 20px;
+    padding-top: 5px;
 }
 .movie-card p{
     font-size: 16px;
@@ -34,6 +34,42 @@
 }
 .movie-card img:hover{
     transform: scale(1.05);
+    cursor: pointer;
+
+}
+.overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 10px;
+}
+
+.img__part{
+    position: relative;
+}
+.img__part:hover .overlay{
+    opacity: 1;
+    cursor: pointer;
+    
+}
+.buy__btn{
+    padding: 10px 10px;
+    background-color: cornflowerblue;
+    border-radius: 5px;
+    border: none;
+    transition: transform 0.3s ease-in-out;
+    color: white;
+}
+.buy__btn:hover{
+    transform: scale(1.1);
     cursor: pointer;
 }
 .text__year{

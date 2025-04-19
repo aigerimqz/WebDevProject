@@ -2,7 +2,13 @@
     <section id="movies">
         <div class="movie-list">
             <div class="movie-card" *ngFor="let movie of movies">
-                <img [src]="movie.image_url" alt="">
+                <div class="img__part">
+                    <img [src]="movie.image_url" alt="">
+                    <div class="overlay">
+                        <button class="buy__btn">Buy Ticket</button>
+                    </div>
+                </div>
+                
                 <h2>{{movie.title}}</h2>
                 <div class="text__year"><p>{{movie.release_year}}</p></div>
                 
