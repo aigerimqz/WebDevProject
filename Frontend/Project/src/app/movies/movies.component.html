@@ -1,1 +1,11 @@
-<p>movies works!</p>
+<div class="container">
+    <section id="movies">
+        <div class="movie-list">
+            <div class="movie-card" *ngFor="let movie of movies">
+                <img [src]="movie.image_url" alt="">
+                <h2>{{movie.title}}</h2>
+                <p>{{movie.release_year}}</p>
+            </div>
+        </div>
+    </section>
+</div>
