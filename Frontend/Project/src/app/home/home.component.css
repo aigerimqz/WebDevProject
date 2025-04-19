@@ -1,0 +1,22 @@
+.container {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 50px 0;
+}
+.nav {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.nav__btn{
+    padding: 15px 20px;
+    background-color: cornflowerblue;
+    border-radius: 10px;
+    border: none;
+    transition: 1.2ms;
+    
+}
+.nav__btn:hover{
+    transform: scale(1.05);
+    cursor: pointer;
+}
