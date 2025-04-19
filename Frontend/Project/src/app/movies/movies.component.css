@@ -1,0 +1,42 @@
+.container {
+    max-width: 1020px;
+    margin: 50px auto;
+}
+.movie-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+.movie-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* align-items: center; */
+    
+   
+    padding: 20px 20px;
+    max-width: 200px;
+
+}
+.movie-card h2{
+    font-size: 16px;
+    padding-top: 20px;
+}
+.movie-card p{
+    font-size: 16px;
+    margin: 0;
+}
+.movie-card img{
+    width: 100%;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+.movie-card img:hover{
+    transform: scale(1.05);
+    cursor: pointer;
+}
+.text__year{
+    display: flex;
+    justify-content: flex-end;
+}

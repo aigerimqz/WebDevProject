@@ -1,0 +1,21 @@
+.nav{
+    border-bottom: 1px solid #d9dad7;
+    padding-top: 5px;
+    padding-bottom: 15px;
+}
+.container{
+    max-width: 1080px;
+    margin: 0 auto;
+}
+.header__nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+.home__link {
+    font-size: 18px;
+}
+.nav__text {
+    font-size: 18px;
+}
