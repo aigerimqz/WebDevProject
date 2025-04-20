@@ -1,0 +1,37 @@
+.container {
+    max-width: 720px;
+    margin: 50px auto;
+}
+.booking__part{
+    display: flex;
+    justify-content: space-between;
+}
+.seating-area {
+    border: 1px solid #d9dad7;
+    border-radius: 10px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+    
+}
+.seat-row {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+.select__btn button{
+    padding: 10px 10px;
+}
+.select-seat {
+}
+
+.seating__screen {
+    display: flex;
+    justify-content: center;
+}
+
+
+
+
+
