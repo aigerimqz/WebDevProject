@@ -22,5 +22,6 @@ export interface Screening {
     cinemaIds: number;
     date: string;
     time: string;
+    price: number;
     
 }

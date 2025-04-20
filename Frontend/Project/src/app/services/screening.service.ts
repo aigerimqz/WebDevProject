@@ -13,14 +13,16 @@ export class ScreeningService {
       movieIds: [1, 2],
       cinemaIds: 1,
       date: '2025-04-20',
-      time: '18:00'
+      time: '18:00',
+      price: 2500
     },
     {
       id: 2,
       movieIds: [2, 4],
       cinemaIds: 2,
       date: '2025-04-20',
-      time: '20:00'
+      time: '20:00',
+      price: 2500
     }
   ];
 

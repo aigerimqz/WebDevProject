@@ -30,13 +30,25 @@
     
 }
 .select__btn {
-    padding: 5px 10px;
+    padding: 5px 5px;
+   
     width: 30px;
     height: 30px;
     font-size: 16px;
     margin: 4px 0;
+    background: none;
+    border: #a2a8d3 solid;
+    border-radius: 5px;
     
     
+}
+.select__btn:hover{
+    background-color: #a2a8d3;
+    color: white;
+}
+.select__btn:active{
+    background-color: #a2a8d3;
+    color: white;
 }
 
 .seating__block{
@@ -83,11 +95,33 @@
     font-size: 14px;
     margin: 10px 0;
 }
-.select-seat {
+.confirm__btn button{
+    background-color: #a2a8d3;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    padding: 15px;
+    transition: transform 0.3s ease-in-out;
 }
-
-
-
+.confirm__btn button:hover{
+    transform: scale(1.05);
+    cursor: pointer;
+}
+.selectedseat__info{
+    display: flex;
+    justify-content: space-between;
+}
+.selectedseat__info span{
+    padding: 7px 0;
+}
+.total__price{
+    padding-top: 30px;
+    padding-bottom: 20px;
+    font-size: 26px;
+}
+.total__price p{
+    font-size: 16px;
+}
 .payment__form{
     display: flex;
     flex-direction: column;

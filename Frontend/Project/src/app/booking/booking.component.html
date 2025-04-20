@@ -68,14 +68,21 @@
       </div>
       <div class="select-seat" *ngIf="selectedSeats.length > 0">
         <h2>Your seats:</h2>
-        <span *ngFor="let seat of selectedSeats; let i = index">
-          {{ seat.row + 1 }} row, {{ seat.seat + 1 }} seat
-
-          <span *ngIf="i < selectedSeats.length - 1"> <br /></span>
-        </span>
+        
+        <div class="selectedseat__info" *ngFor="let seat of selectedSeats; let i = index">
+            <span>{{ seat.row + 1 }} row, {{ seat.seat + 1 }} seat</span>
+            <span>{{screening?.price | currency:'  '}}</span>
+            <!-- <span *ngIf="i < selectedSeats.length - 1"> <br /></span> -->
+        </div>
+              
+        <div class="total__price" *ngIf="screening">
+            <p><strong>{{selectedSeats.length}} seats have chosen</strong></p>
+            <strong>Total: {{ selectedSeats.length * screening.price | currency:' '}}</strong>
+        </div>
+        
       </div>
       <div class="confirm__btn">
-        <button (click)="showPaymentForm = true" [disabled]="selectedSeats.length === 0">Book now</button>
+        <button *ngIf="!showPaymentForm && selectedSeats.length > 0" (click)="showPaymentForm = true">Book now</button>
       </div>
     </div>
   </div>
