@@ -2,7 +2,10 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MoviesService } from '../services/movies.service';
-import { Movie } from '../../models';
+import { Cinema, Movie, Screening } from '../../models';
+import { ScreeningService } from '../services/screening.service';
+import { CinemasService } from '../services/cinemas.service';
+
 
 @Component({
   selector: 'app-movie-detail',
@@ -13,14 +16,31 @@ import { Movie } from '../../models';
 })
 export class MovieDetailComponent implements OnInit{
   movie: Movie | undefined;
+  cinemas: Cinema[] = [];
+  screenings: Screening[] = [];
   constructor(
     private route: ActivatedRoute,
-    private moviesService: MoviesService
+    private moviesService: MoviesService,
+    private screeningService: ScreeningService,
+    private cinemasService: CinemasService
   ){}
 
   ngOnInit(): void {
     const movieId = Number(this.route.snapshot.paramMap.get('id'));
     this.movie = this.moviesService.getMovieById(movieId);
+
+    this.screeningService.getScreeningsByMovieId(movieId).subscribe(data => {
+      this.screenings = data;
+    })
+
+    this.cinemas = this.cinemasService.getAllCinemas();
   }
+
+  getCinemaName(cinemaId: number): string {
+    const cinema = this.cinemas.find(c => c.id === cinemaId);
+    return cinema ? cinema.name : 'Неизвестно';
+  }
+  
+  
 
 }

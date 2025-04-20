@@ -13,3 +13,13 @@ export interface Cinema {
     location: string;
     image_url: string;
 }
+
+
+export interface Screening {
+    id: number;
+    movieIds: number[];
+    cinemaIds: number;
+    date: string;
+    time: string;
+    
+}

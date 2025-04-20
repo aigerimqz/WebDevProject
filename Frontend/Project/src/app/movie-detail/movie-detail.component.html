@@ -14,6 +14,19 @@
         </div>
     </section>
     <section id="booking">
-        
+        <div class="screenings-list" >
+            <div class="screening__item" *ngFor="let screening of screenings">
+                <div class="screening__time">
+                    <h2>{{screening.time}}</h2>
+                </div>
+                <div class="screening__date">
+                    <h2>{{screening.date}}</h2>
+                </div>
+                <div class="screening__location">
+                    <h2>{{ getCinemaName(screening.cinemaIds) }}</h2>
+                </div>
+
+            </div>
+        </div>
     </section>
 </div>

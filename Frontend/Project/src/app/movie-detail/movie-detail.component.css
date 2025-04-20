@@ -16,3 +16,16 @@
 .movie__info h1{
     font-size: 36px;
 }
+
+.screenings-list {
+    
+}
+.screening__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.screening__time {
+}
+.screening__date {
+}
