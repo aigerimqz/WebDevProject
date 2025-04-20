@@ -42,8 +42,11 @@ export class MovieDetailComponent implements OnInit{
     return cinema ? cinema.name : 'Неизвестно';
   }
 
-  goToBooking(screeningId: number){
-    this.router.navigate(['/booking', screeningId]);
+  goToBooking(screeningId: number): void{
+    if(this.movie){
+      this.router.navigate(['/movies', this.movie.id, 'booking', screeningId]);
+    }
+    
   }
   
   

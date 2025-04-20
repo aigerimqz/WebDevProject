@@ -19,7 +19,12 @@
           </div>
           <div class="booking__right">
             <div class="booking__info">
-                
+                <div class="info__img">
+                    <img [src]="movie?.image_url" alt="">
+                </div>
+                <div class="movie__info">
+                    <h2>{{movie?.title}}</h2>
+                </div>
             </div>
             <div class="select-seat" *ngIf="selectedSeats.length > 0">
                 <h2>You have chosen:</h2>

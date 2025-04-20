@@ -29,6 +29,10 @@ export class ScreeningService {
     return this.screenings;
   }
 
+  getScreeningsById(screeningId: number): Screening | undefined {
+    return this.screenings.find(s => s.id === screeningId);
+  }
+
   getScreeningsByMovieId(movieId: number): Observable<Screening[]> {
     const result = this.screenings.filter(s => s.movieIds.includes(movieId));
     // return this.screenings.filter(s => s.movieIds.includes(movieId));

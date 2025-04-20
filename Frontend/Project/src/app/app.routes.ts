@@ -10,5 +10,6 @@ export const routes: Routes = [
     {path: 'movies', component: MoviesComponent},
     {path: 'cinemas', component: CinemasComponent},
     {path: 'movies/:id', component: MovieDetailComponent},
-    {path: 'booking/:id', component: BookingComponent}
+    {path: 'movies/:idMovie/booking/:idScreening',
+        loadComponent: () => import('./booking/booking.component').then(m => m.BookingComponent)}
 ];

@@ -1,6 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Cinema, Movie, Screening } from '../../models';
+import { CinemasService } from '../services/cinemas.service';
+import { MoviesService } from '../services/movies.service';
+import { ScreeningService } from '../services/screening.service';
 
 @Component({
   selector: 'app-booking',
@@ -10,17 +14,37 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./booking.component.css']
 })
 export class BookingComponent implements OnInit {
+  movieId: number = 0;
   screeningId: number = 0;
   seatMap: number[][] = []; 
   selectedSeats: { row: number, seat: number }[] = [];
+  movie: Movie | undefined;
+  cinema: Cinema | undefined;
+  screening: Screening | undefined;
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute,
+              private cinemasService: CinemasService,
+              private moviesService: MoviesService,
+              private screeningService: ScreeningService
+  ) {}
 
   ngOnInit(): void {
-    this.screeningId = Number(this.route.snapshot.paramMap.get('id'));
+    // this.screeningId = Number(this.route.snapshot.paramMap.get('id'));
 
     
     this.seatMap = Array(4).fill(0).map(() => Array(5).fill(0));
+    this.route.paramMap.subscribe(params => {
+      this.movieId = +params.get('idMovie')!;
+      this.screeningId = +params.get('idScreening')!;
+
+      this.movie = this.moviesService.getMovieById(this.movieId);
+      this.screening = this.screeningService.getScreeningsById(this.screeningId);
+      if(this.screening){
+        this.cinema = this.cinemasService.getCinemaById(this.screening.cinemaIds);
+      }
+    });
+
+    
   }
 
   toggleSeat(row: number, seat: number): void {
