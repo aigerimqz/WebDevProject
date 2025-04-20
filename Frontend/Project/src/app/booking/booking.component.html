@@ -1,54 +1,57 @@
-
 <div class="container">
-    
-    <div class="booking__part">
-        <div class="booking__left">
-            <h2>Choose the seat</h2>
-            <div class="seating-area">
-                <div class="seating__screen">
-                    <img [src]="'scrn.png'" alt="">
-                </div>
-                <div *ngFor="let row of seatMap; let rowIndex = index" class="seat-row">
-                  <button
-                    class="select__btn"
-                    *ngFor="let seat of row; let seatIndex = index"
-                    [ngClass]="{ selected: isSelected(rowIndex, seatIndex) }"
-                    (click)="toggleSeat(rowIndex, seatIndex)"
-                  >
-                    {{ seatIndex + 1 }}
-                  </button>
-                </div>
-              </div>
+  <div class="booking__part">
+    <div class="booking__left">
+      <h2>Choose the seat</h2>
+      <div class="seating-area">
+        <div class="seating__screen">
+          <img [src]="'scrn.png'" alt="" />
+          <p>Screen</p>
         </div>
-       
-          <div class="booking__right">
-            <h2>Your booking</h2>
-            <hr>
-            <div class="booking__info">
-                <div class="info__img">
-                    <img [src]="movie?.image_url" alt="">
-                </div>
-                <div class="movie__info">
-                    <h2>{{movie?.title}}</h2>
-                    <p>{{movie?.duration}}</p>
-                    <p>At <strong>{{cinema?.name}}</strong></p>
-                    <p>({{cinema?.location}})</p>
-                    <p>On <strong>{{screening?.date}} - {{screening?.time}}</strong></p>
-                </div>
-            </div>
-            <div class="select-seat" *ngIf="selectedSeats.length > 0">
-                <h2>You have chosen:</h2>
-                <span *ngFor="let seat of selectedSeats; let i = index">
-                    {{ seat.row + 1 }} row and {{ seat.seat + 1 }} seat
-                  
-                  <span *ngIf="i < selectedSeats.length - 1"> <br></span>
-                </span>
-              </div>
-              
+        <div class="seats">
+          <div
+            *ngFor="let row of seatMap; let rowIndex = index"
+            class="seat-row"
+          >
+            <button
+              class="select__btn"
+              *ngFor="let seat of row; let seatIndex = index"
+              [ngClass]="{ selected: isSelected(rowIndex, seatIndex) }"
+              (click)="toggleSeat(rowIndex, seatIndex)"
+            >
+              {{ seatIndex + 1 }}
+            </button>
           </div>
-          
-
+        </div>
+      </div>
     </div>
-    
-      
+
+    <div class="booking__right">
+      <h2>Your booking</h2>
+      <hr />
+      <div class="booking__info">
+        <div class="info__img">
+          <img [src]="movie?.image_url" alt="" />
+        </div>
+        <div class="movie__info">
+          <h2>{{ movie?.title }}</h2>
+          <p>{{ movie?.duration }}</p>
+          <p>
+            At <strong>{{ cinema?.name }}</strong>
+          </p>
+          <p>({{ cinema?.location }})</p>
+          <p>
+            On <strong>{{ screening?.date }} - {{ screening?.time }}</strong>
+          </p>
+        </div>
+      </div>
+      <div class="select-seat" *ngIf="selectedSeats.length > 0">
+        <h2>Your seats:</h2>
+        <span *ngFor="let seat of selectedSeats; let i = index">
+          {{ seat.row + 1 }} row, {{ seat.seat + 1 }} seat
+
+          <span *ngIf="i < selectedSeats.length - 1"> <br /></span>
+        </span>
+      </div>
+    </div>
+  </div>
 </div>

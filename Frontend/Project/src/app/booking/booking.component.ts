@@ -21,6 +21,7 @@ export class BookingComponent implements OnInit {
   movie: Movie | undefined;
   cinema: Cinema | undefined;
   screening: Screening | undefined;
+  showPaymentForm: boolean = false;
 
   constructor(private route: ActivatedRoute,
               private cinemasService: CinemasService,
