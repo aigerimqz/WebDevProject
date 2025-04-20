@@ -1,6 +1,6 @@
 <div class="container">
   <div class="booking__part">
-    <div class="booking__left">
+    <div class="booking__left" *ngIf="!showPaymentForm">
       <h2>Choose the seat</h2>
       <div class="seating-area">
         <div class="seating__screen">
@@ -24,7 +24,29 @@
         </div>
       </div>
     </div>
+    <div *ngIf="showPaymentForm" class="booking__pay">
+        <h2>Please fill out the form to continue payment.</h2>
+        <form class="payment__form"  action="">
+            <label for="">
+                Name/Surname on the card:
+                <input type="text" placeholder="NAME SURNAME">
+            </label>
+            <label for="">
+                Number of the card:
+                <input type="text" placeholder="4444 4444 4444 4444">
+            </label>
+            <label for="">
+                Date:
+                <input type="text" placeholder="01/25">
+            </label>
+            <label for="">
+                CVV:
+                <input type="text" placeholder="123">
+            </label>
+            <button>Pay</button>
+        </form>
 
+    </div>
     <div class="booking__right">
       <h2>Your booking</h2>
       <hr />
@@ -51,6 +73,9 @@
 
           <span *ngIf="i < selectedSeats.length - 1"> <br /></span>
         </span>
+      </div>
+      <div class="confirm__btn">
+        <button (click)="showPaymentForm = true" [disabled]="selectedSeats.length === 0">Book now</button>
       </div>
     </div>
   </div>

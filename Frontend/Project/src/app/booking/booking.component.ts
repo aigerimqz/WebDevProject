@@ -5,6 +5,7 @@ import { Cinema, Movie, Screening } from '../../models';
 import { CinemasService } from '../services/cinemas.service';
 import { MoviesService } from '../services/movies.service';
 import { ScreeningService } from '../services/screening.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-booking',

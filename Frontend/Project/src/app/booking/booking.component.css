@@ -88,4 +88,22 @@
 
 
 
+.payment__form{
+    display: flex;
+    flex-direction: column;
 
+}
+.payment__form label{
+    padding: 20px 0;
+}
+.payment__form input{
+    padding: 5px 5px;
+    border-radius: 5px;
+    border: #d9dad7 1px solid;
+    margin-left: 5px;
+}
+.payment__form button{
+    padding: 10px 10px;
+    width: 100px;
+    border-radius: 5px;
+}
