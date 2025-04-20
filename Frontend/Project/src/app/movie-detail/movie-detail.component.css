@@ -18,7 +18,7 @@
 }
 
 .screenings-list {
-    
+    margin: 70px auto;
 }
 .screening__item {
     display: flex;
@@ -26,6 +26,12 @@
     align-items: center;
 }
 .screening__time {
+    border: 1px solid #d9dad7;
+    border-radius: 15px;
+    padding: 5px 10px;
+    min-width: 70px;
+    text-align: center;
+    margin: 10px 0;
 }
 .screening__date {
 }

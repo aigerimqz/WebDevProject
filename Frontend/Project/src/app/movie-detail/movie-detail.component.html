@@ -25,6 +25,9 @@
                 <div class="screening__location">
                     <h2>{{ getCinemaName(screening.cinemaIds) }}</h2>
                 </div>
+                <div class="screening__btn">
+                    <button (click)="goToBooking(screening.id)">Book ticket</button>
+                </div>
 
             </div>
         </div>

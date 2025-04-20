@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MoviesService } from '../services/movies.service';
 import { Cinema, Movie, Screening } from '../../models';
 import { ScreeningService } from '../services/screening.service';
@@ -22,7 +22,8 @@ export class MovieDetailComponent implements OnInit{
     private route: ActivatedRoute,
     private moviesService: MoviesService,
     private screeningService: ScreeningService,
-    private cinemasService: CinemasService
+    private cinemasService: CinemasService,
+    private router: Router
   ){}
 
   ngOnInit(): void {
@@ -39,6 +40,10 @@ export class MovieDetailComponent implements OnInit{
   getCinemaName(cinemaId: number): string {
     const cinema = this.cinemas.find(c => c.id === cinemaId);
     return cinema ? cinema.name : 'Неизвестно';
+  }
+
+  goToBooking(screeningId: number){
+    this.router.navigate(['/booking', screeningId]);
   }
   
   
