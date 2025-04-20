@@ -5,6 +5,7 @@ export interface Movie {
     genre: string;
     release_year: number;
     image_url: string;
+    duration: string;
 }
 
 export interface Cinema {

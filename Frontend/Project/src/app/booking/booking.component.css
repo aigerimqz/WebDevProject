@@ -1,10 +1,11 @@
 .container {
-    max-width: 720px;
+    max-width: 1020px;
     margin: 50px auto;
 }
 .booking__part{
     display: flex;
     justify-content: space-between;
+   
 }
 .seating-area {
     border: 1px solid #d9dad7;
@@ -13,6 +14,7 @@
     flex-direction: column;
     justify-content: center;
     gap: 8px;
+    padding: 50px 50px;
     
 }
 .seat-row {
@@ -20,17 +22,54 @@
     justify-content: center;
     gap: 8px;
 }
-.select__btn button{
-    padding: 10px 10px;
-}
-.select-seat {
+.select__btn {
+    padding: 5px 10px;
+    width: 30px;
+    height: 30px;
+    font-size: 16px;
+    
 }
 
+.seating__block{
+    
+}
 .seating__screen {
     display: flex;
     justify-content: center;
+    
+}
+.seating__screen img{
+    width: 500px;
 }
 
+
+.booking__right {
+    margin: 0 50px;
+    padding: 0;
+}
+.booking__info {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 10px;
+    
+}
+.info__img img{
+    width: 100px;
+}
+.movie__info{
+    padding-left: 10px;
+}
+.movie__info h2{
+    font-size: 16px;
+    margin: 0;
+    
+}
+.movie__info p{
+    font-size: 14px;
+    margin: 10px 0;
+}
+.select-seat {
+}
 
 
 
