@@ -38,10 +38,15 @@ export class MovieDetailComponent implements OnInit{
     this.cinemas = this.cinemasService.getAllCinemas();
 
     
+    // this.screeningService.getUpcomingScreenings().subscribe(screenings => {
+    //   this.upcomingScreenings = screenings
+    //     .filter(screening => screening.movieId === movieId)
+    //     .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+    // });
+
     this.screeningService.getUpcomingScreenings().subscribe(screenings => {
       this.upcomingScreenings = screenings
-        .filter(screening => screening.movieId === movieId)
-        .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+        .filter(screening => screening.movieId === movieId); 
     });
 
     

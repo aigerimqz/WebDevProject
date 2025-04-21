@@ -56,7 +56,13 @@ export class ScreeningService {
     // return this.screenings.filter(s => s.movieIds.includes(movieId));
     return of(result);
   }
-  
+  sortScreeningByTime(screening: Screening[]): Screening[] {
+    return screening.sort((a, b) => {
+      const timeA = new Date(`${a.date}T${a.time}`).getTime();
+      const timeB = new Date(`${b.date}T${b.time}`).getTime();
+      return timeA - timeB;
+    });
+  }
   getUpcomingScreenings(): Observable<Screening[]> {
     const now = new Date();
 
@@ -64,14 +70,8 @@ export class ScreeningService {
       const screeningDateTime = new Date(`${s.date}T${s.time}`);
       return screeningDateTime > now;
     });
-    return of(result);
+    return of(this.sortScreeningByTime(result));
   }
 
-  sortScreeningByTime(screening: Screening[]): Screening[]{
-    return screening.sort((a, b) => {
-      const timeA = new Date('1970-01-01T' + a.date + 'Z').getTime();
-      const timeB = new Date('1970-01-01T' + b.date + 'Z').getTime();
-      return timeA - timeB;
-    })
-  }
+ 
 }
