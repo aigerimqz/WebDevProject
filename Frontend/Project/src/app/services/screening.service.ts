@@ -32,6 +32,14 @@ export class ScreeningService {
       time: '10:00',
       price: 2500
     },
+    {
+      id: 4,
+      movieId: 2,
+      cinemaId: 1,
+      date: '2025-04-21',
+      time: '23:00',
+      price: 2500
+    }
   ];
 
   constructor() { }
@@ -46,6 +54,16 @@ export class ScreeningService {
   getScreeningsByMovieId(movieId: number): Observable<Screening[]> {
     const result = this.screenings.filter(s => s.movieId === movieId);
     // return this.screenings.filter(s => s.movieIds.includes(movieId));
+    return of(result);
+  }
+  
+  getUpcomingScreenings(): Observable<Screening[]> {
+    const now = new Date();
+
+    const result = this.screenings.filter(s => {
+      const screeningDateTime = new Date(`${s.date}T${s.time}`);
+      return screeningDateTime > now;
+    });
     return of(result);
   }
 }

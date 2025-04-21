@@ -18,6 +18,7 @@ export class CinemaDetailComponent implements OnInit{
   cinema: Cinema | undefined;
   screenings: Screening[] = [];
   movies: any;
+  upcomingScreenings: Screening[] = [];
   constructor(
     private route: ActivatedRoute,
     private cinemasService: CinemasService,
@@ -36,6 +37,11 @@ export class CinemaDetailComponent implements OnInit{
       const movieId = s.movieId;
       return this.moviesService.getMovieById(movieId);
     });
+
+
+    this.screeningService.getUpcomingScreenings().subscribe(screenings => {
+      this.upcomingScreenings = screenings;
+    })
 
       
   }
