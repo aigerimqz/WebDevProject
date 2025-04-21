@@ -18,6 +18,7 @@ export class MovieDetailComponent implements OnInit{
   movie: Movie | undefined;
   cinemas: Cinema[] = [];
   screenings: Screening[] = [];
+  upcomingScreenings: Screening[] = [];
   constructor(
     private route: ActivatedRoute,
     private moviesService: MoviesService,
@@ -30,16 +31,25 @@ export class MovieDetailComponent implements OnInit{
     const movieId = Number(this.route.snapshot.paramMap.get('id'));
     this.movie = this.moviesService.getMovieById(movieId);
 
-    this.screeningService.getScreeningsByMovieId(movieId).subscribe(data => {
-      this.screenings = data;
-    })
+    // this.screeningService.getScreeningsByMovieId(movieId).subscribe(data => {
+    //   this.screenings = data;
+    // })
 
     this.cinemas = this.cinemasService.getAllCinemas();
+
+    
+    this.screeningService.getUpcomingScreenings().subscribe(screenings => {
+      this.upcomingScreenings = screenings
+        .filter(screening => screening.movieId === movieId)
+        .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+    });
+
+    
   }
 
   getCinemaName(cinemaId: number): string {
     const cinema = this.cinemas.find(c => c.id === cinemaId);
-    return cinema ? cinema.name : 'Неизвестно';
+    return cinema ? cinema.name : 'Undefined';
   }
 
   goToBooking(screeningId: number): void{

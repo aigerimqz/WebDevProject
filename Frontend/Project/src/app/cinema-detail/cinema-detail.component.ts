@@ -39,9 +39,13 @@ export class CinemaDetailComponent implements OnInit{
     });
 
 
+    
+
     this.screeningService.getUpcomingScreenings().subscribe(screenings => {
-      this.upcomingScreenings = screenings;
-    })
+      this.upcomingScreenings = screenings
+        .filter(screening => screening.cinemaId === this.cinemaId)
+        .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()); 
+    });
 
       
   }
