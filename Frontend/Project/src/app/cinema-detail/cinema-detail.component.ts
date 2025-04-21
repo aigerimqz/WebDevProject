@@ -49,4 +49,11 @@ export class CinemaDetailComponent implements OnInit{
 
       
   }
+
+
+
+  getMovieById(movieId: number): Movie | undefined {
+    return this.moviesService.getMovieById(movieId);
+  }
+  
 }

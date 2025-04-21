@@ -1,16 +1,39 @@
-<div class="container">
-    <section id="cinema__detail">
+
+<div class="cinema__header" [style.backgroundImage]="'url(' + cinema?.image_url + ')'" >
+    <div class="cinema__info">
         <h2>{{cinema?.name}}</h2>
-        <p>{{cinema?.location}}</p>
+    <div class="cinema__location">
+        <p><img [src]="'location.png'" alt="" class="location__icon">{{cinema?.location}}</p>
+    </div>
+    </div>
+    
+</div>
 
-        <h3>Movie Times:</h3>
-        <div *ngFor="let screening of upcomingScreenings; let i = index" class="movie__list">
-            <div class="screening__item">
-                <h2>{{screening.time}}</h2>
-                <h2>{{screening.date}}</h2>
-                <p>{{movies[i].title}}</p>
+<div class="container">
+    <section id="booking">
+        <div class="screenings-list" >
+            <div class="screening__item" *ngFor="let screening of upcomingScreenings">
+                <div class="screening__movie">
+                    <img [src]="getMovieById(screening.movieId)?.image_url" alt="">
+                    <div class="screening__info">
+                        <h2>{{getMovieById(screening.movieId)?.title}}</h2>
+                        <p>Duration: {{getMovieById(screening.movieId)?.duration}}</p>
+                    </div>
+                    
+                </div>
+                <!-- <div class="screening__movie">
+                    
+                </div> -->
+                
+                <div class="screening__time">
+                    <h2>{{screening.time}}</h2>
+                </div>
+                <div class="screening__date">
+                    <h2>{{screening.date}}</h2>
+                </div>
+                
+
             </div>
-
         </div>
     </section>
 </div>
