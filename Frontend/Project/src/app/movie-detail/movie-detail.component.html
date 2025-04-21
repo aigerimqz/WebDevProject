@@ -23,7 +23,7 @@
                     <h2>{{screening.date}}</h2>
                 </div>
                 <div class="screening__location">
-                    <h2>{{ getCinemaName(screening.cinemaIds) }}</h2>
+                    <h2>{{ getCinemaName(screening.cinemaId) }}</h2>
                 </div>
                 <div class="screening__btn">
                     <button (click)="goToBooking(screening.id)">Book ticket</button>

@@ -1,0 +1,16 @@
+<div class="container">
+    <section id="cinema__detail">
+        <h2>{{cinema?.name}}</h2>
+        <p>{{cinema?.location}}</p>
+
+        <h3>Movie Times:</h3>
+        <div *ngFor="let screening of screenings; let i = index" class="movie__list">
+            <div class="screening__item">
+                <h2>{{screening.time}}</h2>
+                <h2>{{screening.date}}</h2>
+                <p>{{movies[i].title}}</p>
+            </div>
+
+        </div>
+    </section>
+</div>

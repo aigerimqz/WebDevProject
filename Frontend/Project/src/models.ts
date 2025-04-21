@@ -18,8 +18,8 @@ export interface Cinema {
 
 export interface Screening {
     id: number;
-    movieIds: number[];
-    cinemaIds: number;
+    movieId: number;
+    cinemaId: number;
     date: string;
     time: string;
     price: number;

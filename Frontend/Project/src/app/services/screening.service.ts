@@ -10,20 +10,28 @@ export class ScreeningService {
   private screenings: Screening[] = [
     {
       id: 1,
-      movieIds: [1, 2],
-      cinemaIds: 1,
+      movieId: 1,
+      cinemaId: 1,
       date: '2025-04-20',
       time: '18:00',
       price: 2500
     },
     {
       id: 2,
-      movieIds: [2, 4],
-      cinemaIds: 2,
+      movieId: 2,
+      cinemaId: 2,
       date: '2025-04-20',
       time: '20:00',
       price: 2500
-    }
+    },
+    {
+      id: 3,
+      movieId: 2,
+      cinemaId: 1,
+      date: '2025-04-20',
+      time: '10:00',
+      price: 2500
+    },
   ];
 
   constructor() { }
@@ -36,7 +44,7 @@ export class ScreeningService {
   }
 
   getScreeningsByMovieId(movieId: number): Observable<Screening[]> {
-    const result = this.screenings.filter(s => s.movieIds.includes(movieId));
+    const result = this.screenings.filter(s => s.movieId === movieId);
     // return this.screenings.filter(s => s.movieIds.includes(movieId));
     return of(result);
   }

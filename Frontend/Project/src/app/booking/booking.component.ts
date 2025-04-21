@@ -42,7 +42,7 @@ export class BookingComponent implements OnInit {
       this.movie = this.moviesService.getMovieById(this.movieId);
       this.screening = this.screeningService.getScreeningsById(this.screeningId);
       if(this.screening){
-        this.cinema = this.cinemasService.getCinemaById(this.screening.cinemaIds);
+        this.cinema = this.cinemasService.getCinemaById(this.screening.cinemaId);
       }
     });
 
