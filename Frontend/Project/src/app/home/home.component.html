@@ -6,32 +6,32 @@
             <button class="nav__btn" routerLink="/cinemas">Cinemas</button>
         </div>
     </section>
+</div>
+<section id="content">
+    <div class="banner">
+        <button class="banner__slide" (click)="changeBanner('prev')"><img [src]="'prev.png'" alt=""></button>
+        <div class="banner__item">
 
-    <section id="content">
-        <div class="banner">
-            <button class="banner__slide" (click)="changeBanner('prev')"><img [src]="'prev.png'" alt=""></button>
-            <div class="banner__item">
-
-                <div class="banner__img">
-                    <img *ngIf="getCurrentBannerMovie()" [src]="getCurrentBannerMovie().banner" alt="">
-                </div>
-                <div class="banner__info">
-                    <div class="banner__text">
-                        <p>{{getCurrentBannerMovie().duration}} • {{getCurrentBannerMovie().genre}}</p>
-                        <h2>{{getCurrentBannerMovie().title}}</h2>
-                        
-                    </div>
-                    <div class="banner__btn">
-                        <button [routerLink]="['/movies', getCurrentBannerMovie().id]">Get Ticket <img [src]="'ticket.png'" alt=""></button>
-                    </div>
+            <div class="banner__img">
+                <img *ngIf="getCurrentBannerMovie()" [src]="getCurrentBannerMovie().banner" alt="">
+            </div>
+            <div class="banner__info">
+                <div class="banner__text">
+                    <p>{{getCurrentBannerMovie().duration}} • {{getCurrentBannerMovie().genre}}</p>
+                    <h2>{{getCurrentBannerMovie().title}}</h2>
                     
                 </div>
+                <div class="banner__btn">
+                    <button [routerLink]="['/movies', getCurrentBannerMovie().id]">Get Ticket <img [src]="'ticket.png'" alt=""></button>
+                </div>
+                
             </div>
-            <button class="banner__slide" (click)="changeBanner('next')"><img [src]="'next.png'" alt=""></button>
-
         </div>
-    </section>
-   
+        <button class="banner__slide" (click)="changeBanner('next')"><img [src]="'next.png'" alt=""></button>
+
+    </div>
+</section>
+<div class="container">
     <section id="movies">
         <div class="movies__block">
             <div class="movies__header">
@@ -43,7 +43,7 @@
                     <div class="img__part">
                         <img [src]="movie.image_url" alt="">
                         <div class="overlay">
-                            <button class="buy__btn" [routerLink]="['/movies', getCurrentBannerMovie().id]" >Buy Ticket</button>
+                            <button class="buy__btn" [routerLink]="['/movies', movie.id]" >Buy Ticket</button>
                         </div>
                     </div>
                     

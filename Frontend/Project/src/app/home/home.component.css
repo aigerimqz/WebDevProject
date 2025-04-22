@@ -71,7 +71,7 @@
     align-items: center;
     width: 100%;
     position: relative;
-    transition: transform 0.5s ease;
+    transition: transform 0.5s ease-in-out;
 }
 
 
@@ -79,6 +79,7 @@
     width: 100%;
     height: 100%;
     position: relative;
+    overflow: hidden;
 }
 
 .banner__img img {
@@ -86,6 +87,11 @@
     height: 600px; 
     object-fit: cover; 
     border-radius: 10px;
+    transition: transform 0.4s ease;
+    transform-origin: center center;
+}
+.banner__img:hover img{
+    transform: scale(1.1);
 }
 
 
@@ -151,8 +157,7 @@
 
 
 
-.movies__block {
-}
+
 .movies__header {
     display: flex;
     justify-content: space-between;
@@ -241,6 +246,19 @@
     align-items: center;
 }
 
+
+.buy__btn {
+    padding: 10px 10px;
+    background-color: cornflowerblue;
+    border-radius: 5px;
+    border: none;
+    transition: transform 0.3s ease-in-out;
+    color: white;
+}
+.buy__btn:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+}
 
 .cinema-list {
     display: flex;
