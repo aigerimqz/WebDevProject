@@ -9,9 +9,14 @@ class Cinema(models.Model):
         return self.name
 
 class Movies(models.Model):
+    #id = models.IntegerField()
     title = models.CharField(max_length=255)
     description = models.TextField()
+    genre = models.CharField(max_length=255)
     release_year = models.IntegerField()
+    release_date = models.IntegerField()
+    duration = models.PositiveIntegerField()
+    image_url = models.URLField(blank=True)
 
     def __str__(self):
         return self.name
