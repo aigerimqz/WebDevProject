@@ -1,6 +1,6 @@
 from rest_framework import generics, status
-from .models import Cinema, Movies
-from .serializers import CinemaSerializer, MovieSerializer
+from .models import Cinema, Movies, Screening
+from .serializers import CinemaSerializer, MovieSerializer, ScreeningSerializer
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 
@@ -24,3 +24,11 @@ def MovieListCreateView(request):
             serializer.save()
             return Response(serializer.data, status=201)
         return Response(status=status.HTTP_400_BAD_REQUEST)
+    
+
+class ScreeningListCreateView(generics.ListCreateAPIView):
+    queryset = Screening.objects.all()
+    serializer_class = ScreeningSerializer
+class ScreeningDetailView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Screening.objects.all()
+    serializer_class = ScreeningSerializer
