@@ -9,19 +9,25 @@
 
     <section id="content">
         <div class="banner">
-            <button (click)="changeBanner('prev')">1--</button>
+            <button class="banner__slide" (click)="changeBanner('prev')"><img [src]="'prev.png'" alt=""></button>
             <div class="banner__item">
 
                 <div class="banner__img">
                     <img *ngIf="getCurrentBannerMovie()" [src]="getCurrentBannerMovie().banner" alt="">
                 </div>
                 <div class="banner__info">
-                    <h2>{{getCurrentBannerMovie().title}}</h2>
-                    <p>{{getCurrentBannerMovie().duration}}</p>
-                    <button [routerLink]="['/movies', getCurrentBannerMovie().id]">More</button>
+                    <div class="banner__text">
+                        <p>{{getCurrentBannerMovie().duration}} • {{getCurrentBannerMovie().genre}}</p>
+                        <h2>{{getCurrentBannerMovie().title}}</h2>
+                        
+                    </div>
+                    <div class="banner__btn">
+                        <button [routerLink]="['/movies', getCurrentBannerMovie().id]">Get Ticket <img [src]="'ticket.png'" alt=""></button>
+                    </div>
+                    
                 </div>
             </div>
-            <button (click)="changeBanner('next')">--1</button>
+            <button class="banner__slide" (click)="changeBanner('next')"><img [src]="'next.png'" alt=""></button>
 
         </div>
     </section>

@@ -22,29 +22,135 @@
     cursor: pointer;
 }
 
-
 .banner {
     margin: 100px auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    overflow: hidden;
+    border-radius: 10px;
+    background-color: #333;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
+
+
+.banner__slide {
+    position: absolute;
+    background: none;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    color: white;
+    font-size: 24px;
+    z-index: 10;
+    transition: transform 0.3s ease-in-out;
+}
+
+
+.banner button:hover {
+    transform: scale(1.1);
+}
+
+
+.banner button:nth-child(1) {
+    left: 10px;
+}
+
+
+.banner button:nth-child(3) {
+    right: 10px;
+}
+
+
 .banner__item {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    transition: transform 0.5s ease;
+}
+
+
+.banner__img {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.banner__img img {
+    width: 100%;
+    height: 600px; 
+    object-fit: cover; 
+    border-radius: 10px;
+}
+
+
+.banner__info {
+    display: flex;
+   
     justify-content: space-between;
     align-items: center;
-    
-    
-   
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    /* padding: 20px; */
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    text-align: center;
+    border-radius: 10px;
+    /* z-index: 5; */
 }
-.banner__img img{
-    width: 980px;
 
+.banner__info h2 {
+    font-size: 42px;
+    font-weight: bold;
+    margin: 0;
+    padding-bottom: 10px;
 }
-.banner__info {
+
+.banner__info p {
+    font-size: 18px;
+    margin: 0;
+    color: #ddd;
+    padding-bottom: 15px;
 }
+.banner__text{
+    text-align: start;
+    padding: 40px;
+    max-width: 60%;
+}
+
+.banner__btn button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 40px;
+    padding: 10px 20px;
+    background: none;
+    color: white;
+    border: 1px white solid;
+    font-size: 16px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  
+    border: white 1px solid;
+}
+.banner__info button:hover {
+    background-color:cornflowerblue;
+}
+.banner__btn button img{
+    width: 24px;
+    padding-left: 30px;
+}
+
+
+
 .movies__block {
 }
 .movies__header {

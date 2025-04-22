@@ -16,7 +16,7 @@ export class MoviesService {
       release_year: 2025,
       release_date: '10-04-2025',
       image_url: 'https://m.media-amazon.com/images/M/MV5BNDRjY2E0ZmEtN2QwNi00NTEwLWI3MWItODNkMGYwYWFjNGE0XkEyXkFqcGc@._V1_.jpg',
-      duration: '1 hr. 41 min.',
+      duration: '1 hr 41 min',
       banner: 'https://image.tmdb.org/t/p/w1280/jhL4eTpccoZSVehhcR8DKLSBHZy.jpg'
 
     },
@@ -28,7 +28,7 @@ export class MoviesService {
       release_year: 2025,
       release_date: '10-01-2025',
       image_url: 'https://m.media-amazon.com/images/M/MV5BNDRjY2E0ZmEtN2QwNi00NTEwLWI3MWItODNkMGYwYWFjNGE0XkEyXkFqcGc@._V1_.jpg',
-      duration: '1 hr. 41 min.',
+      duration: '1 hr 41 min',
       banner: 'https://image.tmdb.org/t/p/w1280/fTrQsdMS2MUw00RnzH0r3JWHhts.jpg'
 
     },
@@ -40,7 +40,7 @@ export class MoviesService {
       release_year: 2025,
       release_date: '05-04-2025',
       image_url: 'https://m.media-amazon.com/images/M/MV5BNDRjY2E0ZmEtN2QwNi00NTEwLWI3MWItODNkMGYwYWFjNGE0XkEyXkFqcGc@._V1_.jpg',
-      duration: '1 hr. 41 min.',
+      duration: '1 hr 41 min',
       banner: 'https://image.tmdb.org/t/p/w1280/2Nti3gYAX513wvhp8IiLL6ZDyOm.jpg'
 
     },
