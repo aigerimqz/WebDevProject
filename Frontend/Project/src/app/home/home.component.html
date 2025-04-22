@@ -6,35 +6,53 @@
             <button class="nav__btn" routerLink="/cinemas">Cinemas</button>
         </div>
     </section>
-</div>
-<section id="content">
-    <div class="banner">
-        <button (click)="changeBanner('prev')">1--</button>
-        <div class="banner__item">
 
-            <div class="banner__img">
-                <img *ngIf="getCurrentBannerMovie()" [src]="getCurrentBannerMovie().banner" alt="">
+    <section id="content">
+        <div class="banner">
+            <button (click)="changeBanner('prev')">1--</button>
+            <div class="banner__item">
+
+                <div class="banner__img">
+                    <img *ngIf="getCurrentBannerMovie()" [src]="getCurrentBannerMovie().banner" alt="">
+                </div>
+                <div class="banner__info">
+                    <h2>{{getCurrentBannerMovie().title}}</h2>
+                    <p>{{getCurrentBannerMovie().duration}}</p>
+                    <button [routerLink]="['/movies', getCurrentBannerMovie().id]">More</button>
+                </div>
             </div>
-            <div class="banner__info">
-                <h2>{{getCurrentBannerMovie().title}}</h2>
-            </div>
+            <button (click)="changeBanner('next')">--1</button>
+
         </div>
-        <button (click)="changeBanner('next')">--1</button>
-
-    </div>
-</section>
-<div class="container">    
+    </section>
+   
     <section id="movies">
         <div class="movies__block">
             <div class="movies__header">
-                <h2>Movies</h2>
-                <a routerLink="/movies">All movies</a>
+                <h1>Movies</h1>
+                <a routerLink="/movies">all movies <img [src]="'next.png'" alt=""></a>
             </div>
             <div class="movies__list">
-                <div class="movie__item" *ngFor="let movie of getTopMovies(6)">
+                <!-- <div class="movie__card" *ngFor="let movie of getTopMovies(6)">
                     <img [src]="movie.image_url" alt="">
                     <h2>{{movie.title}}</h2>
                     <p>{{movie.genre}}</p>
+                </div> -->
+                <div class="movie__card" *ngFor="let movie of getTopMovies(4)">
+                    <div class="img__part">
+                        <img [src]="movie.image_url" alt="">
+                        <div class="overlay">
+                            <button class="buy__btn" [routerLink]="['/movies', getCurrentBannerMovie().id]" >Buy Ticket</button>
+                        </div>
+                    </div>
+                    
+                    <h2>{{movie.title}}</h2>
+                    <div class="card__bottom">
+                        <p>{{movie.genre}}</p>
+                        <p>{{movie.release_year}}</p>
+                    </div>
+                    
+                    
                 </div>
             </div>
         </div>
