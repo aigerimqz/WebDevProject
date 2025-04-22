@@ -187,7 +187,8 @@
     
    
     padding: 20px 20px;
-    max-width: 200px;
+    max-width: 190px;
+    
 
 }
 .movie__card h2{
@@ -198,11 +199,13 @@
 .movie__card p{
     font-size: 16px;
     margin: 0;
+    color: #999999;
 }
 .movie__card img{
     width: 100%;
     border-radius: 10px;
     transition: transform 0.3s ease-in-out;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
 }
 .movie__card img:hover{
     transform: scale(1.05);
@@ -236,4 +239,73 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+
+.cinema-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    /* justify-content: center; */
+    padding: 20px;
+    
+}
+.cinema-item {
+    width: 320px;
+    height: 220px;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: space-between; */
+    background-size: cover;
+    background-position: center;
+    padding: 30px 50px;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+   
+    
+
+}
+.cinema-item:hover{
+    transform: scale(1.03);
+}
+
+.cinema__info {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 15px;
+    padding-left: 50px;
+    padding-bottom: 30px;
+    
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    transition: background 0.3s ease;
+    border-radius: 70px;
+}
+.cinema-item h2{
+    font-size: 20px;
+}
+.cinema-item p{
+    margin: 0 0 10px 0;
+    font-size: 16px;
+    color: #ddd;
+}
+.cinema__btn {
+    padding: 5px 10px;
+    background: none;
+    border-radius: 5px;
+    border: white 1px solid;
+    transition: transform 0.3s ease-in-out;
+    color: white;
+}
+.cinema__btn:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.line__moviecinema{
+    margin: 70px 0;
 }

@@ -39,11 +39,6 @@
                 <a routerLink="/movies">all movies <img [src]="'next.png'" alt=""></a>
             </div>
             <div class="movies__list">
-                <!-- <div class="movie__card" *ngFor="let movie of getTopMovies(6)">
-                    <img [src]="movie.image_url" alt="">
-                    <h2>{{movie.title}}</h2>
-                    <p>{{movie.genre}}</p>
-                </div> -->
                 <div class="movie__card" *ngFor="let movie of getTopMovies(4)">
                     <div class="img__part">
                         <img [src]="movie.image_url" alt="">
@@ -60,6 +55,31 @@
                     
                     
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="line__moviecinema">
+
+    <section id="cinemas">
+        <div class="movies__header">
+            <h1>Cinemas</h1>
+            <a routerLink="/cinemas">all cinemas <img [src]="'next.png'" alt=""></a>
+        </div>
+        <div class="cinema-list">
+            <div class="cinema-item" *ngFor="let cinema of cinemas"
+            [style.backgroundImage]="'url(' + cinema.image_url + ')'">
+                
+                
+                <div class="cinema__info">
+                    <h2>{{cinema.name}}</h2>
+                   
+                    <p>{{cinema.location}}</p>
+                    <button [routerLink]="['/cinemas', cinema.id]" class="cinema__btn">More</button>
+                </div>
+
+                
+                
             </div>
         </div>
     </section>
