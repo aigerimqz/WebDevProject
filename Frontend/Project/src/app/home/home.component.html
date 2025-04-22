@@ -7,6 +7,31 @@
         </div>
     </section>
 
+    <section id="content">
+        <div class="banner" *ngIf="randomMovie">
+            <div class="banner__item" [style.backgroundImage]="'url(' + randomMovie.image_url + ')'">
+                <div class="banner__info">
+                    <h2>{{randomMovie.title}}</h2>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <section id="movies">
+        <div class="movies__block">
+            <div class="movies__header">
+                <h2>Movies</h2>
+                <a routerLink="/movies">All movies</a>
+            </div>
+            <div class="movies__list">
+                <div class="movie__item" *ngFor="let movie of getTopMovies(6)">
+                    <img [src]="movie.image_url" alt="">
+                    <h2>{{movie.title}}</h2>
+                    <p>{{movie.genre}}</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
 </div>
 
