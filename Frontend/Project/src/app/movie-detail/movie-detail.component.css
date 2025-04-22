@@ -35,3 +35,18 @@
 }
 .screening__date {
 }
+.screening__btn button{
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    
+    background-color:cornflowerblue;
+    color: white;
+}
+.screening__btn button:hover{
+   
+    cursor: pointer;
+    border: cornflowerblue 2px solid;
+    background: none;
+    color: black;
+}

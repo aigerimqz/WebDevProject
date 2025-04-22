@@ -77,6 +77,16 @@
     justify-content: space-between;
     align-items: center;
     margin: 40px auto;
+    padding: 20px 20px;
+    transition: transform 0.3s ease-in-out;
+   
+}
+.screening__item:hover{
+    transform: scale(1.01);
+    border-radius: 10px;
+    border: none;
+    background-color: rgba(210, 225, 240, 0.58);
+    cursor: pointer;
 }
 .screening__time {
     border: 1px solid #d9dad7;
