@@ -21,3 +21,29 @@
     transform: scale(1.05);
     cursor: pointer;
 }
+
+
+.banner {
+    margin: 100px auto;
+    display: flex;
+    justify-content: center;
+    
+}
+.banner__item {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    width: 100%;
+    height: 300px;
+}
+.banner__info {
+}
+.movies__block {
+}
+.movies__header {
+}
+.movies__list {
+}
+.movie__item {
+}

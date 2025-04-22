@@ -6,17 +6,24 @@
             <button class="nav__btn" routerLink="/cinemas">Cinemas</button>
         </div>
     </section>
+</div>
+<section id="content">
+    <div class="banner">
+        <button (click)="changeBanner('prev')">1--</button>
+        <div class="banner__item">
 
-    <section id="content">
-        <div class="banner" *ngIf="randomMovie">
-            <div class="banner__item" [style.backgroundImage]="'url(' + randomMovie.image_url + ')'">
-                <div class="banner__info">
-                    <h2>{{randomMovie.title}}</h2>
-                </div>
+            <div class="banner__img">
+                <img *ngIf="getCurrentBannerMovie()" [src]="getCurrentBannerMovie().banner" alt="">
             </div>
-
+            <div class="banner__info">
+                <h2>{{getCurrentBannerMovie().title}}</h2>
+            </div>
         </div>
-    </section>
+        <button (click)="changeBanner('next')">--1</button>
+
+    </div>
+</section>
+<div class="container">    
     <section id="movies">
         <div class="movies__block">
             <div class="movies__header">

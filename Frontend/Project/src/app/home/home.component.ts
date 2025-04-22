@@ -13,9 +13,11 @@ import { CommonModule } from '@angular/common';
   styleUrl: './home.component.css'
 })
 export class HomeComponent implements OnInit{
-  randomMovie: Movie | null = null;
+
   movies: Movie[] = [];
   cinemas: Cinema[] = [];
+  currentMovieIndex: number = 0;
+
 
   constructor(
     private moviesService: MoviesService,
@@ -23,28 +25,34 @@ export class HomeComponent implements OnInit{
   ){}
 
   ngOnInit(): void {
-      this.movies = this.moviesService.getAllMovies();
-      this.cinemas = this.cinemasService.getAllCinemas();
 
-      this.updateRandomMovie();
-      setInterval(() => {
-        this.updateRandomMovie();    
-      }, 5 * 60 * 1000);
+    this.movies = this.moviesService.getAllMovies();
+    this.cinemas = this.cinemasService.getAllCinemas();
+    this.movies.sort((a, b) => new Date(b.release_date).getTime() - new Date(a.release_date).getTime());
+    
     
 
   }
 
-  updateRandomMovie(): void {
-    if(this.movies.length > 0){
-      const index = Math.floor(Math.random() * this.movies.length);
-      this.randomMovie = this.movies[index];
-    } 
-  }
+  
   getTopMovies(count: number): Movie[]{
     return this.movies.slice(0, count);
   }
   getTopCinemas(count: number): Cinema[]{
     return this.cinemas.slice(0, count);
+  }
+
+  changeBanner(direction: string): void{
+    if(direction === 'next'){
+      this.currentMovieIndex = (this.currentMovieIndex + 1) % this.movies.length;
+
+    }
+    else if(direction === 'prev'){
+      this.currentMovieIndex = (this.currentMovieIndex - 1 + this.movies.length);
+    }
+  }
+  getCurrentBannerMovie(): Movie {
+    return this.movies[this.currentMovieIndex];
   }
 
   

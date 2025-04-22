@@ -4,8 +4,10 @@ export interface Movie {
     description: string;
     genre: string;
     release_year: number;
+    release_date: string;
     image_url: string;
     duration: string;
+    banner?: string;
 }
 
 export interface Cinema {
