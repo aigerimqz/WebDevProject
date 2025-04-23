@@ -19,6 +19,7 @@ export class CinemaDetailComponent implements OnInit{
   screenings: Screening[] = [];
   movies: any;
   upcomingScreenings: Screening[] = [];
+  movieMap: {[key: number]: Movie} = {};
   constructor(
     private route: ActivatedRoute,
     private cinemasService: CinemasService,
@@ -53,7 +54,7 @@ export class CinemaDetailComponent implements OnInit{
 
 
   getMovieById(movieId: number): Movie | undefined {
-    return this.moviesService.getMovieById(movieId);
+    return this.movieMap[movieId];
   }
   
 }

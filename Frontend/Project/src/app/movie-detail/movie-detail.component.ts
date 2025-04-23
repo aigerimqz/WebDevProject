@@ -16,6 +16,8 @@ import { CinemasService } from '../services/cinemas.service';
 })
 export class MovieDetailComponent implements OnInit{
   movie: Movie | undefined;
+  movieId: number = 0;
+  loading: boolean = true;
   cinemas: Cinema[] = [];
   screenings: Screening[] = [];
   upcomingScreenings: Screening[] = [];
@@ -29,7 +31,10 @@ export class MovieDetailComponent implements OnInit{
 
   ngOnInit(): void {
     const movieId = Number(this.route.snapshot.paramMap.get('id'));
-    this.movie = this.moviesService.getMovieById(movieId);
+    this.moviesService.getMovieById(this.movieId).subscribe({
+      next: data => this.movie = data,
+      error: err => console.error("Error loading movie-detail")
+    })
 
     // this.screeningService.getScreeningsByMovieId(movieId).subscribe(data => {
     //   this.screenings = data;

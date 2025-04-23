@@ -17,7 +17,10 @@ export class MoviesComponent implements OnInit{
   constructor(private router: Router, private moviesService: MoviesService){}
 
   ngOnInit(): void {
-    this.movies = this.moviesService.getAllMovies();
+    this.moviesService.getAllMovies().subscribe({
+      next: data => this.movies = data,
+      error: err => console.log("Error loading movie", err)
+    })
   }
   goToDetail(movieId: number): void {
     this.router.navigate(['/movies', movieId]);

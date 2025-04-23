@@ -44,7 +44,10 @@ export class BookingComponent implements OnInit {
       this.movieId = +params.get('idMovie')!;
       this.screeningId = +params.get('idScreening')!;
 
-      this.movie = this.moviesService.getMovieById(this.movieId);
+      this.moviesService.getMovieById(this.movieId).subscribe({
+        next: data => this.movie = data,
+        error: err => console.error('Ошибка при получении фильма', err)
+      });
       this.screening = this.screeningService.getScreeningsById(this.screeningId);
       if(this.screening){
         this.cinema = this.cinemasService.getCinemaById(this.screening.cinemaId);

@@ -58,31 +58,22 @@ export class MoviesService {
     }
    
   ]
-  private apiUrl = ''
+  private apiUrl = 'http://127.0.0.1:8000/api/movies/';
 
 
   constructor(private client: HttpClient) { }
 
-  // getAllMovies(): Observable<Movie[]> {
-  //   return this.client.get<Movie[]>(this.apiUrl);
-  // }
-  // getMovieById(id: number): Observable<Movie> {
-  //   return this.client.get<Movie>(`${this.apiUrl}${id}/`);
-  // }
+  getAllMovies(): Observable<Movie[]> {
+    return this.client.get<Movie[]>(this.apiUrl);
+  }
+  getMovieById(id: number): Observable<Movie> {
+    return this.client.get<Movie>(`${this.apiUrl}${id}/`);
+  }
 
-  getAllMovies(): Movie[]{
-    return this.movies;
-  }
-  // getAllMovies(): Observable<Movie[]>{
-  //   const access = localStorage.getItem('access')
-  //   return this.client.get<Movie[]>('http://127.0.0.1:8000/api/movies/',
-  //     {headers: {
-  //       "Authorization": `Bearer ${access}`
-  //     }}
-  //   )
-    
+  // getAllMovies(): Movie[]{
+  //   return this.movies;
   // }
-  getMovieById(id: number): Movie | undefined {
-    return this.movies.find(movie => movie.id === id);
-  }
+  // getMovieById(id: number): Movie | undefined {
+  //   return this.movies.find(movie => movie.id === id);
+  // }
 }

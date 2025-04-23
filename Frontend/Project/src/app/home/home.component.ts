@@ -25,8 +25,11 @@ export class HomeComponent implements OnInit{
   ){}
 
   ngOnInit(): void {
-
-    this.movies = this.moviesService.getAllMovies();
+    this.moviesService.getAllMovies().subscribe({
+      next: data => this.movies = data,
+      error: err => console.error("Error")
+    })
+    // this.movies = this.moviesService.getAllMovies();
     this.cinemas = this.cinemasService.getAllCinemas();
     this.movies.sort((a, b) => new Date(b.release_date).getTime() - new Date(a.release_date).getTime());
     
