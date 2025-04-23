@@ -12,4 +12,6 @@ urlpatterns = [
     path('movies/<id:pk>', MovieDetailView.as_view()),
     path('screening/', ScreeningListCreateView.as_view()),
     path('screening/<int:pk>/', ScreeningDetailView.as_view()),
+    path('booking/', create_booking, name='create-booking'),
+    path('booking/my/', my_bookings, name='my-bookings'),
 ]
