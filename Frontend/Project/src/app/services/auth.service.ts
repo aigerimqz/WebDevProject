@@ -13,17 +13,17 @@ export class AuthService {
 
 
   login(userModel: User): Observable<Token>{
-    return this.client.post<Token>('http://127.0.0.1:8000/api/login/', userModel);
-    // return new Observable(observer => {
-    //   this.client.post<Token>('http://127.0.0.1:8000/api/login/', userModel).subscribe({
-    //     next: (token) => {
-    //       localStorage.setItem('token', token.access);
-    //       observer.next(token);
-    //       observer.complete();
-    //     },
-    //     error: err => observer.error(err)
-    //   })
-    // })
+    // return this.client.post<Token>('http://127.0.0.1:8000/api/login/', userModel);
+    return new Observable(observer => {
+      this.client.post<Token>('http://127.0.0.1:8000/api/login/', userModel).subscribe({
+        next: (token) => {
+          localStorage.setItem('token', token.access);
+          observer.next(token);
+          observer.complete();
+        },
+        error: err => observer.error(err)
+      })
+    })
     
   }
 
