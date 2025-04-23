@@ -1,0 +1,24 @@
+<div class="container">
+    <section id="auth">
+        <div class="login__content">
+            <div class="login__block">
+                <div class="login__tittle">
+                    <h1>Login</h1>
+                </div>
+                
+                <div class="login__form">
+                    <form (ngSubmit)="onLogin()" #loginForm="ngForm" action="">
+                        <input class="input__email" name="emial" type="email" placeholder="email" [(ngModel)]="email" required>
+                        <input class="input__password" name="password" type="password" placeholder="password" [(ngModel)]="password" required>
+                        <button class="form__btn" type="submit">Login</button>
+                        <p class="form__error" *ngIf="errorMessage">{{errorMessage}}</p>
+                        <a class="form__link" href="">Forgot a password?</a>
+                        <hr>
+                        <p class="signin__link">You don't have an account? <br> <a href="">Sign In</a></p>
+                    </form>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+</div>

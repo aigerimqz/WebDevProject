@@ -1,8 +1,20 @@
 <nav class="nav">
     <div class="container">
         <div class="header__nav">
-            <a class="home__link" [routerLink]="['/']"><img src="" alt="">Icon</a>
-            <p class="nav__text">Login</p>
+            <div class="home__nav">
+                <a class="home__link" [routerLink]="['/']"><img [src]="'icon.png'" alt="">TickTick</a>
+
+            </div>
+            <div class="log__nav" *ngIf="currentUser; else loginLink">
+                <a class="nav__text" routerLink="/profile" > <img [src]="'profile.png'" alt=""> Hi, {{currentUser.username}}</a>
+                <button (click)="logout()">Log Out <img [src]="'logout.png'" alt=""></button>
+
+            </div>
+            <ng-template class="logout__nav" #loginLink>
+                <a class="nav__text" routerLink="/login" > <img [src]="'auth.png'" alt=""> Login</a>
+
+            </ng-template>
+            
         </div>
     </div>
     

@@ -9,12 +9,19 @@
 }
 .movie__img img{
     width: 350px;
+    border-radius: 20px;
 }
 .movie__info {
     padding-left: 50px;
+   
 }
 .movie__info h1{
     font-size: 36px;
+}
+
+.movie__info hr{
+    margin-top: 20px;
+    margin-bottom: 30px;
 }
 
 .screenings-list {
@@ -40,13 +47,13 @@
     border-radius: 10px;
     border: none;
     
-    background-color:cornflowerblue;
+    background-color:midnightblue;
     color: white;
 }
 .screening__btn button:hover{
    
     cursor: pointer;
-    border: cornflowerblue 2px solid;
+    border: midnightblue 2px solid;
     background: none;
     color: black;
 }
