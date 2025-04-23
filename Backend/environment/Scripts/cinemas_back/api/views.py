@@ -16,6 +16,10 @@ class MovieListView(generics.ListCreateAPIView):
     queryset = Movies.objects.all()
     serializer_class = MovieSerializer
 
+class MovieDetailView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Movies.objects.all()
+    serializer_class = MovieSerializer
+
 # @api_view(['GET', 'POST'])
 # def MovieListCreateView(request):
 #     if request.method == 'GET':
