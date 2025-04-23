@@ -25,4 +25,4 @@ class BookingSerializer(serializers.Serializer):
     seat_number = serializers.IntegerField()
     created_at = serializers.DateTimeField(read_only=True)
     username = serializers.PrimaryKeyRelatedField(queryset=User.objects.all(), required=False)
-    is_paid = serializers.BooleanField()
+    is_paid = serializers.BooleanField(default=False)

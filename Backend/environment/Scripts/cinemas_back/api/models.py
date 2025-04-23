@@ -46,7 +46,7 @@ class Booking(models.Model):
     seat_number = models.IntegerField() 
     created_at = models.DateTimeField(auto_now_add=True)
     username = models.ForeignKey(User, on_delete=models.CASCADE)
-    is_paid = models.BooleanField() 
+    is_paid = models.BooleanField(default=False) 
 
     def __str__(self):
         return f'{self.user.username} — Seat {self.seat}'
