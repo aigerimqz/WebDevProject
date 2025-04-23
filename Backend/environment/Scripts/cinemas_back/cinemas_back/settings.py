@@ -112,15 +112,7 @@ AUTH_PASSWORD_VALIDATORS = [
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
-<<<<<<< HEAD
-    ),
-}
-=======
-    )
-}
-
->>>>>>> 61a2fd8555d062c2d3ca0c8cb0bc3fa5c7eced0f
-
+    )}
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
