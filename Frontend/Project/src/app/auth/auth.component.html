@@ -7,10 +7,11 @@
                 </div>
                 
                 <div class="login__form">
-                    <form action="">
-                        <input class="input__email" type="email" placeholder="email">
-                        <input class="input__password" type="password" placeholder="password">
-                        <button class="form__btn">Login</button>
+                    <form (ngSubmit)="onLogin()" #loginForm="ngForm" action="">
+                        <input class="input__email" name="emial" type="email" placeholder="email" [(ngModel)]="email" required>
+                        <input class="input__password" name="password" type="password" placeholder="password" [(ngModel)]="password" required>
+                        <button class="form__btn" type="submit">Login</button>
+                        <p class="form__error" *ngIf="errorMessage">{{errorMessage}}</p>
                         <a class="form__link" href="">Forgot a password?</a>
                         <hr>
                         <p class="signin__link">You don't have an account? <br> <a href="">Sign In</a></p>
