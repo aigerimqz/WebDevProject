@@ -13,13 +13,17 @@ import { Router } from '@angular/router';
 })
 export class CinemasComponent implements OnInit{
   cinemas: Cinema[] = []
+  loading: boolean = true;
 
   constructor(private cinemasService: CinemasService,
               private router: Router
   ){}
 
   ngOnInit(): void {
-      this.cinemas = this.cinemasService.getAllCinemas();
+      this.cinemasService.getAllCinemas().subscribe({
+        next: data => {this.cinemas = data; this.loading=false},
+        error: err => {console.log("Error on getting data", err); this.loading = this.loading}
+      })
   }
   goToDetail(cinemaId: number): void {
     this.router.navigate(['/cinemas', cinemaId]);

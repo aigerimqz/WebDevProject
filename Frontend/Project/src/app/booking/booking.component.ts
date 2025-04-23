@@ -18,6 +18,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class BookingComponent implements OnInit {
   movieId: number = 0;
+  cinemaId: number = 0;
   screeningId: number = 0;
   seatMap: number[][] = []; 
   selectedSeats: { row: number, seat: number }[] = [];
@@ -46,11 +47,14 @@ export class BookingComponent implements OnInit {
 
       this.moviesService.getMovieById(this.movieId).subscribe({
         next: data => this.movie = data,
-        error: err => console.error('Ошибка при получении фильма', err)
+        error: err => console.error('Error on getting movie', err)
       });
       this.screening = this.screeningService.getScreeningsById(this.screeningId);
       if(this.screening){
-        this.cinema = this.cinemasService.getCinemaById(this.screening.cinemaId);
+        this.cinemasService.getCinemaById(this.cinemaId).subscribe({
+          next: data => this.cinema = data,
+          error: err => console.error('Error on getting movie', err)
+        });
       }
     });
 

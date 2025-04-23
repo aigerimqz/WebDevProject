@@ -30,17 +30,21 @@ export class MovieDetailComponent implements OnInit{
   ){}
 
   ngOnInit(): void {
-    const movieId = Number(this.route.snapshot.paramMap.get('id'));
+    this.movieId = Number(this.route.snapshot.paramMap.get('id'));
     this.moviesService.getMovieById(this.movieId).subscribe({
-      next: data => this.movie = data,
-      error: err => console.error("Error loading movie-detail")
+      next: data => {this.movie = data; this.loading = false},
+      error: err => {console.error("Error loading movie-detail", err); this.loading = false;}
     })
 
     // this.screeningService.getScreeningsByMovieId(movieId).subscribe(data => {
     //   this.screenings = data;
     // })
 
-    this.cinemas = this.cinemasService.getAllCinemas();
+
+    this.cinemasService.getAllCinemas().subscribe({
+      next: data => this.cinemas = data,
+      error: err => console.log("Error", err)
+    })
 
     
     // this.screeningService.getUpcomingScreenings().subscribe(screenings => {
@@ -51,7 +55,7 @@ export class MovieDetailComponent implements OnInit{
 
     this.screeningService.getUpcomingScreenings().subscribe(screenings => {
       this.upcomingScreenings = screenings
-        .filter(screening => screening.movieId === movieId); 
+        .filter(screening => screening.movieId === this.movieId); 
     });
 
     

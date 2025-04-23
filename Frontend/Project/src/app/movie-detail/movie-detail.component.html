@@ -5,6 +5,7 @@
                 <img [src]="movie.image_url" alt="">
             </div>
             <div class="movie__info">
+                <p *ngIf="loading">Loading</p>
                 <h1>{{movie.title}}</h1>
                 <hr>
                 <p><strong>Release year: </strong>{{movie.release_year}}</p>

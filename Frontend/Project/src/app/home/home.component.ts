@@ -30,7 +30,10 @@ export class HomeComponent implements OnInit{
       error: err => console.error("Error")
     })
     // this.movies = this.moviesService.getAllMovies();
-    this.cinemas = this.cinemasService.getAllCinemas();
+    this.cinemasService.getAllCinemas().subscribe({
+      next: data => this.cinemas = data,
+      error: err => console.error("Error")
+    })
     this.movies.sort((a, b) => new Date(b.release_date).getTime() - new Date(a.release_date).getTime());
     
     
