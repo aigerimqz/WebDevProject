@@ -17,7 +17,9 @@ class Movies(models.Model):
     release_date = models.DateField()
     duration = models.CharField(max_length=255)
     image_url = models.URLField(blank=True)
-    banner = models.TextField()
+    # banner = models.TextField(null=True)
+    # banner = models.ImageField(upload_to='banners/', null=True, blank=True)
+
 
     def __str__(self):
         return self.name
