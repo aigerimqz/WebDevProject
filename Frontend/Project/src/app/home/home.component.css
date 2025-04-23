@@ -10,7 +10,7 @@
 }
 .nav__btn{
     padding: 15px 20px;
-    background-color: cornflowerblue;
+    background-color: midnightblue;
     border-radius: 10px;
     border: none;
     transition: 1.2ms;
@@ -148,7 +148,7 @@
     border: white 1px solid;
 }
 .banner__info button:hover {
-    background-color:cornflowerblue;
+    background-color:midnightblue;
 }
 .banner__btn button img{
     width: 24px;
@@ -249,7 +249,7 @@
 
 .buy__btn {
     padding: 10px 10px;
-    background-color: cornflowerblue;
+    background-color: midnightblue;
     border-radius: 5px;
     border: none;
     transition: transform 0.3s ease-in-out;

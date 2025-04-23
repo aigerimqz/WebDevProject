@@ -50,3 +50,23 @@
     width: 28px;
     padding-right: 5px;
 }
+
+.log__nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.log__nav button{
+    padding: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: none;
+    border: none;
+    font-size: 18px;
+    margin-left: 10px;
+}
+.log__nav button img{
+    width: 28px;
+}

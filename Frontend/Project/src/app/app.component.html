@@ -7,7 +7,7 @@
             </div>
             <div class="log__nav" *ngIf="currentUser; else loginLink">
                 <a class="nav__text" routerLink="/profile" > <img [src]="'profile.png'" alt=""> Hi, {{currentUser.username}}</a>
-                <button (click)="logout()">Log Out</button>
+                <button (click)="logout()">Log Out <img [src]="'logout.png'" alt=""></button>
 
             </div>
             <ng-template class="logout__nav" #loginLink>
