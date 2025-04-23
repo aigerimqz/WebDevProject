@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Cinema, Movie, Screening } from '../../models';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink, RouterModule } from '@angular/router';
 import { CinemasService } from '../services/cinemas.service';
 import { ScreeningService } from '../services/screening.service';
 import { MoviesService } from '../services/movies.service';
@@ -9,7 +9,7 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-cinema-detail',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './cinema-detail.component.html',
   styleUrl: './cinema-detail.component.css'
 })
