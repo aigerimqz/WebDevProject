@@ -19,7 +19,7 @@ class ScreeningSerializer(serializers.ModelSerializer):
         model = Screening
         fields = ['id', 'movieId', 'cinemaId', 'date', 'time', 'price']
 
-class BookingCustomSerializer(serializers.Serializer):
+class BookingSerializer(serializers.Serializer):
     screening = serializers.PrimaryKeyRelatedField(queryset=Screening.objects.all())
     seat_row = serializers.IntegerField()
     seat_number = serializers.IntegerField()
