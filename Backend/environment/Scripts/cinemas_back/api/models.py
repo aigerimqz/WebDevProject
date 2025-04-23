@@ -39,6 +39,13 @@ class Login(models.Model):
     username = models.CharField(max_length=255)
     password = models.CharField(max_length=100)
 
-# class Booking(models.Model):
-#     username = models.ForeignKey(User, on_delete=models)
 
+class Booking(models.Model):
+    screening = models.ForeignKey('Screening', on_delete=models.CASCADE)
+    seat_row = models.IntegerField()
+    seat_number = models.IntegerField() 
+    created_at = models.DateTimeField(auto_now_add=True)
+    username = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'{self.user.username} — Seat {self.seat}'
