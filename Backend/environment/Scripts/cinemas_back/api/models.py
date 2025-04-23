@@ -33,3 +33,8 @@ class Screening(models.Model):
 
     def __str__(self):
         return f"{self.movie.title} at {self.cinema.name} on {self.date} {self.time}"
+
+class Login(models.Model):
+    username = models.CharField(max_length=255)
+    password = models.CharField(max_length=100)
+    
