@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Screening } from '../../models';
 import { Observable, retry } from 'rxjs';
 import { of } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -42,7 +43,7 @@ export class ScreeningService {
     }
   ];
 
-  constructor() { }
+  constructor(private client: HttpClient) { }
   getAllScreenings(): Screening[] {
     return this.screenings;
   }
@@ -73,5 +74,13 @@ export class ScreeningService {
     return of(this.sortScreeningByTime(result));
   }
 
+  bookTicket(booking: any): Observable<any>{
+    const headers = new HttpHeaders({'Content-type': 'applications/json'});
+
+    return this.client.post('/api/bookings/',booking, {headers});
+  }
+  createBooking(data: any): Observable<any>{
+    return this.client.post('http://127.0.0.1:8000/api/booking/', data);
+  }
  
 }

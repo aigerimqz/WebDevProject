@@ -39,5 +39,9 @@ export class AuthService {
     return user ? JSON.parse(user): null;
   }
 
+  getToken(): string | null{
+    return localStorage.getItem('token');
+  }
+
   constructor() { }
 }

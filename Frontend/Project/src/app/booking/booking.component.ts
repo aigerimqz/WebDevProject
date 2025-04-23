@@ -1,11 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Cinema, Movie, Screening } from '../../models';
 import { CinemasService } from '../services/cinemas.service';
 import { MoviesService } from '../services/movies.service';
 import { ScreeningService } from '../services/screening.service';
 import { NgForm } from '@angular/forms';
+import { AuthService } from '../services/auth.service';
+import { BookingService } from '../services/booking.service';
 
 @Component({
   selector: 'app-booking',
@@ -27,7 +29,10 @@ export class BookingComponent implements OnInit {
   constructor(private route: ActivatedRoute,
               private cinemasService: CinemasService,
               private moviesService: MoviesService,
-              private screeningService: ScreeningService
+              private screeningService: ScreeningService,
+              private authService: AuthService,
+              private router: Router,
+              private bookingService: BookingService
   ) {}
 
   ngOnInit(): void {
@@ -60,5 +65,45 @@ export class BookingComponent implements OnInit {
 
   isSelected(row: number, seat: number): boolean {
     return this.selectedSeats.some(s => s.row === row && s.seat === seat);
+  }
+
+
+  bookNow(){
+    if(!this.authService.isLoggedIn()){
+      this.router.navigate(['/login'], {
+        queryParams: {returnUrl: this.router.url}
+      });
+
+    }else{
+      this.showPaymentForm = true;
+    }
+  }
+
+  onPaymentSubmit(form: NgForm){
+    if(form.valid && this.selectedSeats.length > 0 && this.screeningId){
+      const bookingRequests = this.selectedSeats.map(seat => {
+        return {
+          screening: this.screeningId,
+          seat_row: seat.row + 1,
+          seat_num: seat.seat + 1,
+          is_paid:true
+        };
+      });
+
+      bookingRequests.forEach(booking => {
+        this.screeningService.bookTicket(booking).subscribe({
+          next: () => {
+            console.log('Booking is successfull');
+          },
+          error: err => {
+            console.error("Error on booking")
+          }
+        });
+      });
+      alert("Tickets booked successfully!")
+      this.router.navigate(['/my-bookings']);
+    }else{
+      alert("Fill out whole form fields");
+    }
   }
 }

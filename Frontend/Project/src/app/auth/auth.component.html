@@ -10,7 +10,7 @@
                     <form (ngSubmit)="onLogin()" #loginForm="ngForm" action="">
                         <input class="input__email" name="emial" type="email" placeholder="email" [(ngModel)]="email" required>
                         <input class="input__password" name="password" type="password" placeholder="password" [(ngModel)]="password" required>
-                        <button class="form__btn" type="submit">Login</button>
+                        <button class="form__btn" type="submit" [disabled]="!loginForm.valid">Login</button>
                         <p class="form__error" *ngIf="errorMessage">{{errorMessage}}</p>
                         <a class="form__link" href="">Forgot a password?</a>
                         <hr>

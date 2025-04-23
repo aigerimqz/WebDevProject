@@ -16,20 +16,25 @@ export class AuthComponent {
   email: string = '';
   password: string = '';
   errorMessage: string = '';
-  
+  returnUrl: string = '/';
+ 
   constructor(
     private authService: AuthService,
-    private router: Router
-  ){}
+    private router: Router,
+    private route: ActivatedRoute
+  ){
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+  }
 
-  onLogin(){
+  onLogin(): void{
     const success  = this.authService.login(this.email, this.password);
     if(success){
-      this.router.navigate(['/']);
+      this.router.navigateByUrl(this.returnUrl);
     }else{
       this.errorMessage = 'Wrong email or password';
     }
   }
+
   
 
 

@@ -82,7 +82,7 @@
         
       </div>
       <div class="confirm__btn">
-        <button *ngIf="!showPaymentForm && selectedSeats.length > 0" (click)="showPaymentForm = true">Book now</button>
+        <button *ngIf="!showPaymentForm && selectedSeats.length > 0" (click)="bookNow()">Book now</button>
       </div>
     </div>
   </div>
