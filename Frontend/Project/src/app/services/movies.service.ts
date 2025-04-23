@@ -73,6 +73,15 @@ export class MoviesService {
   getAllMovies(): Movie[]{
     return this.movies;
   }
+  // getAllMovies(): Observable<Movie[]>{
+  //   const access = localStorage.getItem('access')
+  //   return this.client.get<Movie[]>('http://127.0.0.1:8000/api/movies/',
+  //     {headers: {
+  //       "Authorization": `Bearer ${access}`
+  //     }}
+  //   )
+    
+  // }
   getMovieById(id: number): Movie | undefined {
     return this.movies.find(movie => movie.id === id);
   }

@@ -6,6 +6,7 @@ import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 import { BookingComponent } from './booking/booking.component';
 import { CinemaDetailComponent } from './cinema-detail/cinema-detail.component';
 import { AuthComponent } from './auth/auth.component';
+import { MyBookingsComponent } from './my-bookings/my-bookings.component';
 
 export const routes: Routes = [
     {path: '', component: HomeComponent},
@@ -16,5 +17,6 @@ export const routes: Routes = [
 
     {path: 'cinemas', component: CinemasComponent},
     {path: 'cinemas/:id', component: CinemaDetailComponent},
-    {path: 'login', component: AuthComponent}
+    {path: 'login', component: AuthComponent},
+    {path: 'my-bookings', component: MyBookingsComponent}
 ];

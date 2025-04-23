@@ -30,8 +30,22 @@ export interface Screening {
 
 export interface User {
     id?: number;
-    username?: string;
-    email: string;
+    username: string;
+    email?: string;
     password: string;
     
+}
+
+export interface Token{
+    refresh: string;
+    access: string;
+}
+
+
+export interface Booking{
+    screening: number;
+    seat_row: number;
+    seat_number: number;
+    created_at?: string;
+    is_paid?: boolean;
 }

@@ -8,11 +8,11 @@ import { ScreeningService } from '../services/screening.service';
 import { NgForm } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
 import { BookingService } from '../services/booking.service';
-
+import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-booking',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './booking.component.html',
   styleUrls: ['./booking.component.css']
 })
@@ -69,6 +69,8 @@ export class BookingComponent implements OnInit {
 
 
   bookNow(){
+    console.log("Is Logged In?", this.authService.isLoggedIn());
+    console.log("Token", this.authService.getToken());
     if(!this.authService.isLoggedIn()){
       this.router.navigate(['/login'], {
         queryParams: {returnUrl: this.router.url}
@@ -83,10 +85,10 @@ export class BookingComponent implements OnInit {
     if(form.valid && this.selectedSeats.length > 0 && this.screeningId){
       const bookingRequests = this.selectedSeats.map(seat => {
         return {
+         
           screening: this.screeningId,
           seat_row: seat.row + 1,
-          seat_num: seat.seat + 1,
-          is_paid:true
+          seat_number: seat.seat + 1
         };
       });
 
@@ -96,11 +98,13 @@ export class BookingComponent implements OnInit {
             console.log('Booking is successfull');
           },
           error: err => {
-            console.error("Error on booking")
+            console.error("Error on booking", err);
+            alert("Error on booking. Try later");
           }
         });
       });
       alert("Tickets booked successfully!")
+      this.selectedSeats = [];
       this.router.navigate(['/my-bookings']);
     }else{
       alert("Fill out whole form fields");

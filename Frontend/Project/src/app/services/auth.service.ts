@@ -1,47 +1,48 @@
 import { Injectable } from '@angular/core';
-import { User } from '../../models';
+import { User, Token } from '../../models';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private users: User[] = [
-    {
-      id: 1,
-      username: 'admin',
-      email: 'admin@example.com',
-      password: '12345'
+  constructor(private client: HttpClient) { }
 
-    }
-  ]
 
-  private currentUser: User | null = null;
-
-  login(email: string, password: string): boolean {
-    const user = this.users.find(u => u.email === email && u.password === password);
-    if(user){
-      this.currentUser = user;
-      localStorage.setItem('currentUser', JSON.stringify(user));
-      return true;
-    }
-    return false;
+  login(userModel: User): Observable<Token>{
+    return this.client.post<Token>('http://127.0.0.1:8000/api/login/', userModel);
+    // return new Observable(observer => {
+    //   this.client.post<Token>('http://127.0.0.1:8000/api/login/', userModel).subscribe({
+    //     next: (token) => {
+    //       localStorage.setItem('token', token.access);
+    //       observer.next(token);
+    //       observer.complete();
+    //     },
+    //     error: err => observer.error(err)
+    //   })
+    // })
+    
   }
 
-  logout(): void {
-    this.currentUser = null;
-    localStorage.removeItem('currentUser');
-  }
+  
   isLoggedIn(): boolean{
-    return localStorage.getItem('currentUser') !== null;
+    return !!localStorage.getItem('token');
   }
   getCurrentUser(): User | null{
     const user = localStorage.getItem('currentUser');
     return user ? JSON.parse(user): null;
   }
 
-  getToken(): string | null{
+  getToken(): string | null {
     return localStorage.getItem('token');
   }
+  logout() {
+    localStorage.removeItem('token');
+  }
+  
 
-  constructor() { }
+  
 }

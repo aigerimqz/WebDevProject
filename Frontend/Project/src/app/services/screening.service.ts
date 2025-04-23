@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Screening } from '../../models';
+import { Booking, Screening } from '../../models';
 import { Observable, retry } from 'rxjs';
 import { of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Token } from '@angular/compiler';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -43,7 +45,9 @@ export class ScreeningService {
     }
   ];
 
-  constructor(private client: HttpClient) { }
+  constructor(private client: HttpClient,
+    private authService: AuthService
+  ) { }
   getAllScreenings(): Screening[] {
     return this.screenings;
   }
@@ -74,13 +78,32 @@ export class ScreeningService {
     return of(this.sortScreeningByTime(result));
   }
 
-  bookTicket(booking: any): Observable<any>{
-    const headers = new HttpHeaders({'Content-type': 'applications/json'});
+  bookTicket(booking: Booking): Observable<any>{
+    // const token = localStorage.getItem('access');
 
-    return this.client.post('/api/bookings/',booking, {headers});
+    // const headers = new HttpHeaders({
+    //   'Content-Type': 'application/json',
+    //   'Authorization': `Bearer ${token}`
+    // });
+    return this.client.post<any>('http://127.0.0.1:8000/api/booking/', booking);
   }
-  createBooking(data: any): Observable<any>{
-    return this.client.post('http://127.0.0.1:8000/api/booking/', data);
-  }
+  // bookTicket(booking: any): Observable<any>{
+  //   return this.client.post('http://127.0.0.1:8000/api/booking/', booking, {
+  //     headers: {
+  //       Authorization: `Bearer ${this.authService.getToken()}`
+  //     }
+  //   })
+  //   const token = localStorage.getItem('access');
+  //   const headers = new HttpHeaders({
+  //     'Content-type': 'application/json',
+  //     'Authorization': `Bearer ${token}`
+
+  //   });
+
+  //   return this.client.post('/api/booking/',booking, {headers});
+  // }
+  // createBooking(data: any): Observable<any>{
+  //   return this.client.post('http://127.0.0.1:8000/api/booking/', data);
+  // }
  
 }

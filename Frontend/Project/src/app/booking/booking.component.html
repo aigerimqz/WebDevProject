@@ -26,24 +26,24 @@
     </div>
     <div *ngIf="showPaymentForm" class="booking__pay">
         <h2>Please fill out the form to continue payment.</h2>
-        <form class="payment__form"  action="">
+        <form class="payment__form" #paymentForm="ngForm" (ngSubmit)="onPaymentSubmit(paymentForm)"  action="">
             <label for="">
                 Name/Surname on the card:
-                <input type="text" placeholder="NAME SURNAME">
+                <input type="text" placeholder="NAME SURNAME" name="cardName" ngModel>
             </label>
             <label for="">
                 Number of the card:
-                <input type="text" placeholder="4444 4444 4444 4444">
+                <input type="text" placeholder="4444 4444 4444 4444" name="cardNumber" ngModel>
             </label>
             <label for="">
                 Date:
-                <input type="text" placeholder="01/25">
+                <input type="text" placeholder="01/25" name="expiryDate" ngModel>
             </label>
             <label for="">
                 CVV:
-                <input type="text" placeholder="123">
+                <input type="text" placeholder="123" name="cvv" ngModel>
             </label>
-            <button>Pay</button>
+            <button type="submit">Pay</button>
         </form>
 
     </div>
