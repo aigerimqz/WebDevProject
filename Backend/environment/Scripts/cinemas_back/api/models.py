@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 class Cinema(models.Model):
     name = models.CharField(max_length=100)
@@ -37,4 +38,7 @@ class Screening(models.Model):
 class Login(models.Model):
     username = models.CharField(max_length=255)
     password = models.CharField(max_length=100)
-    
+
+# class Booking(models.Model):
+#     username = models.ForeignKey(User, on_delete=models)
+
