@@ -60,3 +60,9 @@ def my_bookings(request):
     bookings = Booking.objects.filter(user=request.user)
     serializer = BookingSerializer(bookings, many=True)
     return Response(serializer.data)
+
+
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def check_auth(request):
+    return Response({"user": request.user.username})
