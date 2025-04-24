@@ -5,6 +5,11 @@
                 <a class="home__link" [routerLink]="['/']"><img [src]="'icon.png'" alt="">MovieTime</a>
 
             </div>
+            <div class="ticket__nav">
+                <nav class="nav__ticket">
+                    <a routerLink="/my-bookings">My tickets <img [src]="'ticket.png'" alt=""></a>
+                </nav>
+            </div>
             <div class="log__nav" *ngIf="currentUser; else loginLink">
                 <a class="nav__text" routerLink="/profile" > <img [src]="'profile.png'" alt=""> Hi, {{currentUser.username}}</a>
                 <button (click)="logout()">Log Out <img [src]="'logout.png'" alt=""></button>

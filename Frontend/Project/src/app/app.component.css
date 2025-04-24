@@ -46,6 +46,27 @@
     color: black;
    
 }
+.nav__ticket{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.nav__ticket a{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: black;
+    font-size: 21px;
+}
+.nav__ticket a:hover{
+    text-decoration: underline 1px black;
+}
+.nav__ticket a img{
+    filter: brightness(0);
+    padding-left: 10px;
+    width: 24px;
+
+}
 .nav__text img{
     width: 28px;
     padding-right: 5px;
