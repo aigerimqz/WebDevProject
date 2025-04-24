@@ -42,6 +42,9 @@
     
     
 }
+.selected{
+    background-color:#a2a8d3 ;color: white;
+}
 .select__btn:hover{
     background-color: #a2a8d3;
     color: white;
