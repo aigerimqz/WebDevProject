@@ -13,11 +13,11 @@ class MovieSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class ScreeningSerializer(serializers.ModelSerializer):
-    movieId = serializers.PrimaryKeyRelatedField(source='movies', queryset=Movies.objects.all())
-    cinemaId = serializers.PrimaryKeyRelatedField(source='cinema', queryset=Cinema.objects.all())
+    movie = MovieSerializer()
+    cinema = CinemaSerializer()
     class Meta:
         model = Screening
-        fields = ['id', 'movieId', 'cinemaId', 'date', 'time', 'price']
+        fields = ['id', 'movie', 'cinema', 'date', 'time', 'price']
 
 
 class BookingSerializer(serializers.Serializer):

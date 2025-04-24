@@ -1,1 +1,24 @@
-<p>my-bookings works!</p>
+
+<div class="container">
+    <div class="bookings-container" *ngIf="bookings.length > 0; else noBookings">
+        <h1 class="title">My Tickets <img [src]="'ticket.png'" alt=""></h1>
+        <hr class="line">
+        <div class="booking__item" *ngFor="let booking of bookings">
+          
+          <div class="booking__info">
+            <div class="booking__text"><img [src]="booking.movieImage" alt="Movie" class="movie__img"><h2>{{ booking?.movieTitle }}</h2></div>
+            
+            <p><strong>Date:</strong> {{ booking.date }}</p>
+            <p><strong>Time:</strong> {{ booking?.time }}</p>
+            <p><strong>Price:</strong> {{ booking?.price }} ₸</p>
+
+            <button (click)="deleteBooking(booking.id)">Delete</button>
+          </div>
+        </div>
+      </div>
+      
+      <ng-template #noBookings>
+        <p>You don’t have any bookings yet.</p>
+      </ng-template>
+      
+</div>

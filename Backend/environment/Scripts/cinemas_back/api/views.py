@@ -62,6 +62,7 @@ def my_bookings(request):
     return Response(serializer.data)
 
 
+
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
 def check_auth(request):

@@ -52,9 +52,11 @@ export class ScreeningService {
     return this.screenings;
   }
 
-  getScreeningsById(screeningId: number): Screening | undefined {
-    return this.screenings.find(s => s.id === screeningId);
+  getScreeningById(screeningId: number): Observable<Screening | undefined> {
+    const screening = this.screenings.find(s => s.id === screeningId);
+    return of(screening);
   }
+  
 
   getScreeningsByMovieId(movieId: number): Observable<Screening[]> {
     const result = this.screenings.filter(s => s.movieId === movieId);
@@ -79,31 +81,9 @@ export class ScreeningService {
   }
 
   bookTicket(booking: Booking): Observable<any>{
-    // const token = localStorage.getItem('access');
-
-    // const headers = new HttpHeaders({
-    //   'Content-Type': 'application/json',
-    //   'Authorization': `Bearer ${token}`
-    // });
+  
     return this.client.post<any>('http://127.0.0.1:8000/api/booking/', booking);
   }
-  // bookTicket(booking: any): Observable<any>{
-  //   return this.client.post('http://127.0.0.1:8000/api/booking/', booking, {
-  //     headers: {
-  //       Authorization: `Bearer ${this.authService.getToken()}`
-  //     }
-  //   })
-  //   const token = localStorage.getItem('access');
-  //   const headers = new HttpHeaders({
-  //     'Content-type': 'application/json',
-  //     'Authorization': `Bearer ${token}`
 
-  //   });
-
-  //   return this.client.post('/api/booking/',booking, {headers});
-  // }
-  // createBooking(data: any): Observable<any>{
-  //   return this.client.post('http://127.0.0.1:8000/api/booking/', data);
-  // }
  
 }

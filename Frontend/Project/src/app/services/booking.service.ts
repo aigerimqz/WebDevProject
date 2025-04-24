@@ -21,10 +21,13 @@ export class BookingService {
 
   getMyBookings(): Observable<Booking[]> {
     const token = localStorage.getItem('token');
-    const headers = new HttpHeaders({
-      'Authorization': `Bearer ${token}`
-    });
+   
 
-    return this.client.get<Booking[]>(`${this.apiUrl}/my/`, { headers });
+    return this.client.get<Booking[]>(`${this.apiUrl}/my`);
   }
+
+  deleteBooking(id: number): Observable<any> {
+    return this.client.delete(`http://127.0.0.1:8000/api/booking/my/${id}/`);
+  }
+  
 }

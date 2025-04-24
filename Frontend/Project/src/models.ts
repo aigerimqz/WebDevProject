@@ -48,4 +48,9 @@ export interface Booking{
     seat_number: number;
     created_at?: string;
     is_paid?: boolean;
+    date?: string;  
+    time?: string;
+    price?: number;
+    movieTitle?: string;
+    movieImage?: string;
 }
