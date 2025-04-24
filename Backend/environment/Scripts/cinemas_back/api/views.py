@@ -63,7 +63,7 @@ def my_bookings(request):
 
 
 
-@api_view(['GET'])
-@permission_classes([IsAuthenticated])
-def check_auth(request):
-    return Response({"user": request.user.username})
+# @api_view(['GET'])
+# @permission_classes([IsAuthenticated])
+# def check_auth(request):
+#     return Response({"user": request.user.username})
