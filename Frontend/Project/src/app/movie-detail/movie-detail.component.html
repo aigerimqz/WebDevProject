@@ -17,18 +17,23 @@
     <section id="booking">
         <div class="screenings-list" >
             <div class="screening__item" *ngFor="let screening of upcomingScreenings">
-                <div class="screening__time">
-                    <h2>{{screening.time}}</h2>
+                <div class="screening__timedate">
+                    <div class="screening__time">
+                        <h2>{{screening.time}}</h2>
+                    </div>
+                    <div class="screening__date">
+                        <h2>{{screening.date}}</h2>
+                    </div>
                 </div>
-                <div class="screening__date">
-                    <h2>{{screening.date}}</h2>
+                <div class="screening__info">
+                    <div class="screening__location">
+                        <h2>{{ getCinemaName(screening.cinemaId) }}</h2>
+                    </div>
+                    <div class="screening__btn">
+                        <button (click)="goToBooking(screening.id)">Book ticket</button>
+                    </div>
                 </div>
-                <div class="screening__location">
-                    <h2>{{ getCinemaName(screening.cinemaId) }}</h2>
-                </div>
-                <div class="screening__btn">
-                    <button (click)="goToBooking(screening.id)">Book ticket</button>
-                </div>
+                
 
             </div>
         </div>

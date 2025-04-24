@@ -39,10 +39,12 @@
     min-width: 70px;
     text-align: center;
     margin: 10px 0;
+    margin-right: 30px;
 }
 .screening__date {
 }
 .screening__btn button{
+    margin-left: 40px;
     padding: 10px;
     border-radius: 10px;
     border: none;
@@ -56,4 +58,17 @@
     border: midnightblue 2px solid;
     background: none;
     color: black;
+}
+
+.screening__timedate{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-width: 400px;
+}
+.screening__info{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-width: 400px
 }

@@ -49,13 +49,24 @@ export class BookingComponent implements OnInit {
         next: data => this.movie = data,
         error: err => console.error('Error on getting movie', err)
       });
-      this.screeningService.getScreeningById(this.screeningId);
-      if(this.screening){
-        this.cinemasService.getCinemaById(this.cinemaId).subscribe({
-          next: data => this.cinema = data,
-          error: err => console.error('Error on getting movie', err)
-        });
-      }
+      this.screeningService.getScreeningById(this.screeningId).subscribe(s => {
+        this.screening = s;
+        if (this.screening) {
+          const dateTime = new Date(`${this.screening.date}T${this.screening.time}`);
+          console.log('screening loaded', this.screening);
+      
+         
+          this.cinemasService.getCinemaById(this.screening.cinemaId).subscribe(cinema => {
+            this.cinema = cinema;
+            console.log('Cinema loaded:', cinema);
+          });
+        } else {
+          console.log('Screening not found');
+        }
+      });
+      
+
+      
     });
 
     

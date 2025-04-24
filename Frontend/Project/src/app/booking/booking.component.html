@@ -54,7 +54,7 @@
         <div class="info__img">
           <img [src]="movie?.image_url" alt="" />
         </div>
-        <div class="movie__info">
+        <div class="movie__info" *ngIf="screening || cinema">
           <h2>{{ movie?.title }}</h2>
           <p>{{ movie?.duration }}</p>
           <p>

@@ -9,7 +9,11 @@
     align-items: center;
 }
 .nav__btn{
+    display: flex;
+    align-items: center;
     padding: 15px 20px;
+    font-size: 18px;
+    font-weight: bold;
     background-color: midnightblue;
     border-radius: 10px;
     border: none;
@@ -20,6 +24,10 @@
 .nav__btn:hover{
     transform: scale(1.05);
     cursor: pointer;
+}
+.nav__btn img{
+    width: 24px;
+    padding-left: 10px;
 }
 
 .banner {

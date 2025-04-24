@@ -64,9 +64,10 @@
     align-items: center;
     background: none;
     border: none;
-    font-size: 18px;
+    font-size: 21px;
     margin-left: 10px;
 }
 .log__nav button img{
     width: 28px;
+    padding-left: 10px;
 }
