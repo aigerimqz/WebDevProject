@@ -1,12 +1,12 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
-  standalone: true,            // <-- важно
+  standalone: true,          
   imports: [CommonModule, FormsModule, RouterModule],
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
@@ -15,26 +15,32 @@ export class RegisterComponent {
   name: string = '';
   email: string = '';
   password: string = '';
+  password2: string = '';
   errorMessage: string = '';
   successMessage: string = '';
 
-  @Output() switchToLogin = new EventEmitter<void>();
-
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   onRegister() {
-    const newUser = { name: this.name, email: this.email, password: this.password };
+    if (this.password !== this.password2) {
+      this.errorMessage = 'Passwords do not match';
+      return;
+    }
+
+    const newUser = { 
+      username: this.name, 
+      email: this.email, 
+      password: this.password,
+      password2: this.password2 
+    };
 
     this.authService.register(newUser).subscribe({
       next: () => {
         this.successMessage = 'Registration successful!';
-        setTimeout(() => this.switchToLogin.emit(), 800);
+      
+        this.router.navigateByUrl('/');
       },
       error: () => this.errorMessage = 'Registration failed. Try again.'
     });
-  }
-
-  goToLogin() {
-    this.switchToLogin.emit();
   }
 }

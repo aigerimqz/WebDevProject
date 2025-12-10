@@ -1,30 +1,32 @@
 <nav class="nav">
-    <div class="container">
-        <div class="header__nav">
-            <div class="home__nav">
-                <a class="home__link" [routerLink]="['/']"><img [src]="'icon.png'" alt="">MovieTime</a>
+  <div class="container">
+    <div class="header__nav">
+      <div class="home__nav">
+        <a class="home__link" [routerLink]="['/']">
+          <img [src]="'icon.png'" alt="">MovieTime
+        </a>
+      </div>
 
-            </div>
-            <div class="ticket__nav">
-                <nav class="nav__ticket">
-                    <a routerLink="/my-bookings">My tickets <img [src]="'ticket.png'" alt=""></a>
-                </nav>
-            </div>
-            <div class="log__nav" *ngIf="currentUser; else loginLink">
-                <a class="nav__text" routerLink="/profile" > <img [src]="'profile.png'" alt=""> Hi, {{currentUser.username}}</a>
-                <button (click)="logout()">Log Out <img [src]="'logout.png'" alt=""></button>
+      <div class="ticket__nav">
+        <nav class="nav__ticket">
+          <a routerLink="/my-bookings">My tickets <img [src]="'ticket.png'" alt=""></a>
+        </nav>
+      </div>
 
-            </div>
-            <ng-template class="logout__nav" #loginLink>
-                <a class="nav__text" routerLink="/login" > <img [src]="'auth.png'" alt=""> Login</a>
+      <div class="log__nav" *ngIf="currentUser; else loginLink">
+        <a class="nav__text" routerLink="/profile">
+          <img [src]="'profile.png'" alt=""> Hi, {{ currentUser.username }}
+        </a>
+        <button (click)="logout()">Log Out <img [src]="'logout.png'" alt=""></button>
+      </div>
 
-            </ng-template>
-            
-        </div>
+      <ng-template #loginLink>
+        <a class="nav__text" routerLink="/login">
+          <img [src]="'auth.png'" alt=""> Login
+        </a>
+      </ng-template>
     </div>
-    
-    
+  </div>
 </nav>
-
 
 <router-outlet></router-outlet>

@@ -10,9 +10,9 @@
                     <form (ngSubmit)="onRegister()" #registerForm="ngForm" action="">
 
                         <input class="input__name" 
-                               name="name" 
+                               name="username" 
                                type="text" 
-                               placeholder="Name" 
+                               placeholder="Please write username" 
                                [(ngModel)]="name" 
                                required>
 
@@ -28,6 +28,12 @@
                                type="password" 
                                placeholder="Password" 
                                [(ngModel)]="password" 
+                               required>
+                        <input class="input__password" 
+                               name="password2" 
+                               type="password2" 
+                               placeholder="Repeat the password" 
+                               [(ngModel)]="password2" 
                                required>
 
                         <button class="form__btn" type="submit" [disabled]="!registerForm.valid">Sign Up</button>
