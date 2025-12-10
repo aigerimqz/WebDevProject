@@ -1,0 +1,98 @@
+.container{
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+.login__content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.login__block {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border: #999999 1px solid;
+    border-radius: 15px;
+    width: 400px;
+    box-shadow: 0 4px 4px rgba(153, 153, 153, 0.5);
+}
+.login__tittle {
+    font-size: 24px;
+    margin: 10px 0;
+}
+.login__form form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin: 50px 0;
+}
+
+.login__form input{
+    padding: 10px;
+    
+    border: 1px solid #999999;
+    border-radius: 20px;
+    margin: 10px 0;
+    width: 250px;
+}
+
+.input__email {
+    padding: 10px;
+}
+.input__password {
+}
+.form__btn {
+    margin: 20px;
+    padding: 10px 20px;
+    border: 1px solid midnightblue;
+    border-radius: 20px;
+    background: none;
+    width: 250px;
+    font-size: 16px;
+    font-weight: bolder;
+    color: midnightblue;
+    transition: transform 0.3s ease-in-out;
+    
+}
+
+.form__btn:hover{
+    background-color: midnightblue;
+    color: white;
+    transform: scale(1.05);
+    cursor: pointer;
+
+}
+.form__link {
+    margin: 10px 0;
+    text-decoration: none;
+    color: midnightblue;
+    
+}
+.form__link:hover, .signin__link a:hover{
+    text-decoration: underline 1px solid midnightblue;
+    
+}
+
+.signin__link{
+    margin-top: 10px;
+    font-size: 16px;
+    color: #999999;
+    text-align: center;
+}
+
+.signin__link a{
+    text-decoration: none;
+    color: midnightblue;
+}
+
+.form__error{
+    color: red;
+    margin-bottom: 20px;
+}

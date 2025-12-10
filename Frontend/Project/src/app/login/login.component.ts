@@ -6,13 +6,13 @@ import { AuthService } from '../services/auth.service';
 import { User, Token } from '../../models';
 
 @Component({
-  selector: 'app-auth',
+  selector: 'app-login',
   standalone: true,
   imports: [CommonModule, FormsModule, RouterModule],
-  templateUrl: './auth.component.html',
-  styleUrl: './auth.component.css'
+  templateUrl: './login.component.html',
+  styleUrl: './login.component.css'
 })
-export class AuthComponent {
+export class LoginComponent {
   userModel: User;
 
 

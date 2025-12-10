@@ -1,0 +1,49 @@
+<div class="container">
+    <section id="register">
+        <div class="register__content">
+            <div class="register__block">
+                <div class="register__title">
+                    <h1>Register</h1>
+                </div>
+                
+                <div class="register__form">
+                    <form (ngSubmit)="onRegister()" #registerForm="ngForm" action="">
+
+                        <input class="input__name" 
+                               name="name" 
+                               type="text" 
+                               placeholder="Name" 
+                               [(ngModel)]="name" 
+                               required>
+
+                        <input class="input__email" 
+                               name="email" 
+                               type="email" 
+                               placeholder="Email" 
+                               [(ngModel)]="email" 
+                               required>
+
+                        <input class="input__password" 
+                               name="password" 
+                               type="password" 
+                               placeholder="Password" 
+                               [(ngModel)]="password" 
+                               required>
+
+                        <button class="form__btn" type="submit" [disabled]="!registerForm.valid">Sign Up</button>
+
+                        <p class="form__error" *ngIf="errorMessage">{{ errorMessage }}</p>
+                        <p class="form__success" *ngIf="successMessage">{{ successMessage }}</p>
+
+                        <hr>
+
+                        <p class="login__link">Already have an account? <br> 
+                            <a routerLink="/login">Login</a>
+                        </p>
+                    </form>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+</div>
