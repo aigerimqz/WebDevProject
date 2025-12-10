@@ -14,5 +14,7 @@ urlpatterns = [
     path('screening/<int:pk>/', ScreeningDetailView.as_view()),
     path('booking/', create_booking, name='create-booking'),
     path('booking/my/', my_bookings, name='my-bookings'),
+    path('register/', RegisterView.as_view(), name='register'),
+
     # path('check_auth/', check_auth, name='check_auth'),
 ]
