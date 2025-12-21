@@ -3,7 +3,11 @@
 
 
   <div class="avatar-section">
-  <img [src]="currentUser.avatar || 'default-avatar.png'" alt="Avatar" class="avatar-img">
+  <!-- <img [src]="currentUser.avatar || 'default-avatar.png'" alt="Avatar" class="avatar-img"> -->
+   <img [src]="currentUser.avatar ? ('http://127.0.0.1:8000' + currentUser.avatar) : 'default-avatar.png'" 
+     alt="Avatar" 
+     class="avatar-img">
+
   <input type="file" (change)="onAvatarChange($event)">
 </div>
 

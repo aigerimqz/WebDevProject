@@ -95,9 +95,37 @@ class BookingDetailSerializer(serializers.ModelSerializer):
         fields = ['id', 'seat_row', 'seat_number', 'created_at', 'is_paid',
                   'movie_title', 'movie_image', 'cinema_name', 'screening_date', 'screening_time', 'price']
 
+# class ProfileSerializer(serializers.ModelSerializer):
+#     bookings = BookingDetailSerializer(source='booking_set', many=True)
+
+#     class Meta:
+#         model = User
+#         fields = ['id', 'username', 'email', 'bookings']
+
+from rest_framework import serializers
+from django.contrib.auth.models import User
+from .models import Profile
+
 class ProfileSerializer(serializers.ModelSerializer):
-    bookings = BookingDetailSerializer(source='booking_set', many=True)
+    avatar = serializers.ImageField(source='profile.avatar', required=False)
 
     class Meta:
         model = User
-        fields = ['id', 'username', 'email', 'bookings']
+        fields = ['id', 'username', 'email', 'avatar']
+
+    def update(self, instance, validated_data):
+        # обновляем User
+        instance.username = validated_data.get('username', instance.username)
+        instance.email = validated_data.get('email', instance.email)
+        instance.save()
+
+        # обновляем Profile.avatar
+        profile_data = validated_data.get('profile', {})
+        if profile_data:
+            profile, _ = Profile.objects.get_or_create(user=instance)
+            avatar = profile_data.get('avatar')
+            if avatar:
+                profile.avatar = avatar
+                profile.save()
+
+        return instance

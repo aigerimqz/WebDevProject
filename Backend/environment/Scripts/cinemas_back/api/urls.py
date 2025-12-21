@@ -16,7 +16,9 @@ urlpatterns = [
     path('booking/my/', my_bookings, name='my-bookings'),
     path('register/', RegisterView.as_view(), name='register'),
 
-    path('profile/', profile, name='profile'),
+    # path('profile/', profile, name='profile'),
+
+    path('profile/', ProfileView.as_view(), name='profile'),
 
     # path('check_auth/', check_auth, name='check_auth'),
 ]

@@ -93,3 +93,36 @@ def my_bookings(request):
 # @permission_classes([IsAuthenticated])
 # def check_auth(request):
 #     return Response({"user": request.user.username})
+
+from rest_framework.views import APIView
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.parsers import MultiPartParser, FormParser
+from rest_framework.response import Response
+from django.contrib.auth.models import User
+from .models import Profile
+from .serializers import ProfileSerializer
+
+class ProfileView(APIView):
+    permission_classes = [IsAuthenticated]
+    parser_classes = [MultiPartParser, FormParser]
+
+    def get(self, request):
+        serializer = ProfileSerializer(request.user)
+        return Response(serializer.data)
+
+    def patch(self, request):
+        # гарантируем, что Profile существует
+        Profile.objects.get_or_create(user=request.user)
+
+        serializer = ProfileSerializer(
+            request.user,
+            data=request.data,
+            partial=True
+        )
+
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+
+        return Response(serializer.errors, status=400)
+
