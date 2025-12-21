@@ -1,7 +1,7 @@
 <div class="container">
     <section id="movies">
         <div class="movie-list">
-            <div class="movie-card" *ngFor="let movie of movies">
+            <div class="movie-card" *ngFor="let movie of filteredMovies">
                 <div class="img__part">
                     <img [src]="movie.image_url" alt="">
                     <div class="overlay">
