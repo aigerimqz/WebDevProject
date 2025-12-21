@@ -25,16 +25,4 @@
 
   <hr>
 
-
-  <div class="bookings-section" *ngIf="bookings.length > 0">
-    <h3>My Bookings</h3>
-    <ul>
-      <li *ngFor="let booking of bookings">
-        <strong>{{ booking.movieTitle }}</strong> — {{ booking.date }} {{ booking.time }}, Seat: {{ booking.seat_row }}-{{ booking.seat_number }}, Price: ${{ booking.price }}
-      </li>
-    </ul>
-  </div>
-  <div *ngIf="bookings.length === 0">
-    <p>No bookings yet.</p>
-  </div>
 </div>

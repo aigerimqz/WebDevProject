@@ -1,0 +1,144 @@
+/* Общий контейнер профиля */
+.profile-container {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 25px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  font-family: Arial, sans-serif;
+}
+
+/* Заголовок */
+.profile-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Аватар */
+.avatar-section {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.avatar-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid midnightblue;
+  margin-bottom: 10px;
+  transition: transform 0.3s;
+}
+
+.avatar-img:hover {
+  transform: scale(1.05);
+}
+
+/* Файл инпут */
+.avatar-section input[type="file"] {
+  display: block;
+  margin: 0 auto;
+}
+
+/* Имя пользователя */
+.username-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.username-section label {
+  width: 80px;
+  font-weight: bold;
+  color: #555;
+}
+
+.username-section input {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+}
+
+.username-section input:focus {
+  border-color: #4CAF50;
+  outline: none;
+}
+
+/* Кнопка обновления */
+button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: midnightblue;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: midnightblue;
+  transform: scale(1.01);
+}
+
+/* Сообщения успеха и ошибки */
+.success {
+  color: #4CAF50;
+  font-weight: bold;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.error {
+  color: #f44336;
+  font-weight: bold;
+  margin-top: 10px;
+  text-align: center;
+}
+
+/* Секции бронирований */
+.bookings-section {
+  margin-top: 30px;
+}
+
+.bookings-section h3 {
+  color: #333;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 5px;
+}
+
+.bookings-section ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.bookings-section li {
+  padding: 10px;
+  margin-bottom: 8px;
+  background-color: #fff;
+  border-radius: 8px;
+  border: 1px solid #eee;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+  transition: transform 0.2s;
+}
+
+.bookings-section li:hover {
+  transform: scale(1.02);
+}
+
+/* Сообщение "нет бронирований" */
+.bookings-section p {
+  text-align: center;
+  color: #888;
+  font-style: italic;
+}
