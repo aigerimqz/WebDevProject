@@ -8,6 +8,7 @@ import { CinemaDetailComponent } from './cinema-detail/cinema-detail.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { MyBookingsComponent } from './my-bookings/my-bookings.component';
+import { ProfileComponent } from './profile/profile.component';
 
 export const routes: Routes = [
     {path: '', component: HomeComponent},
@@ -21,4 +22,5 @@ export const routes: Routes = [
     {path: 'login', component: LoginComponent},
     {path: 'my-bookings', component: MyBookingsComponent},
     {path: 'register', component: RegisterComponent},
+    {path: 'profile', component: ProfileComponent},
 ];

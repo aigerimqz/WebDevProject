@@ -5,6 +5,7 @@ import { Observable, BehaviorSubject } from 'rxjs';
 export interface User {
   username: string;
   email: string;
+  avatar?: string;
 }
 
 export interface Token {
@@ -23,6 +24,12 @@ export class AuthService {
     const user = localStorage.getItem('currentUser');
     return user ? JSON.parse(user) : null;
   }
+
+  setCurrentUser(user: User) {
+  localStorage.setItem('currentUser', JSON.stringify(user));
+  this.currentUserSubject.next(user);
+}
+
 
   login(userModel: User & { password: string }): Observable<Token> {
     return new Observable(observer => {

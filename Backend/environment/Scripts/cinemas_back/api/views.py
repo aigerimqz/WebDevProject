@@ -7,6 +7,10 @@ from rest_framework.permissions import IsAuthenticated
 from .serializers import RegisterSerializer
 from rest_framework import generics
 from django.contrib.auth.models import User
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.response import Response
+from .serializers import ProfileSerializer
 
 
 class CinemaListCreateView(generics.ListCreateAPIView):
@@ -53,6 +57,15 @@ class ScreeningDetailView(generics.RetrieveUpdateDestroyAPIView):
 class RegisterView(generics.CreateAPIView):
     queryset = User.objects.all()
     serializer_class = RegisterSerializer
+
+
+
+
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def profile(request):
+    serializer = ProfileSerializer(request.user)
+    return Response(serializer.data)
 
 
 @api_view(['POST'])

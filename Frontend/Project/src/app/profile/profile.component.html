@@ -1,1 +1,36 @@
-<p>profile works!</p>
+<div class="profile-container" *ngIf="currentUser">
+  <h2>Profile</h2>
+
+
+  <div class="avatar-section">
+  <img [src]="currentUser.avatar || 'default-avatar.png'" alt="Avatar" class="avatar-img">
+  <input type="file" (change)="onAvatarChange($event)">
+</div>
+
+
+
+  <div class="username-section">
+    <label>Username:</label>
+    <input type="text" [(ngModel)]="newUsername">
+  </div>
+
+  <button (click)="updateProfile()">Update Profile</button>
+
+  <p class="success" *ngIf="successMessage">{{ successMessage }}</p>
+  <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
+
+  <hr>
+
+
+  <div class="bookings-section" *ngIf="bookings.length > 0">
+    <h3>My Bookings</h3>
+    <ul>
+      <li *ngFor="let booking of bookings">
+        <strong>{{ booking.movieTitle }}</strong> — {{ booking.date }} {{ booking.time }}, Seat: {{ booking.seat_row }}-{{ booking.seat_number }}, Price: ${{ booking.price }}
+      </li>
+    </ul>
+  </div>
+  <div *ngIf="bookings.length === 0">
+    <p>No bookings yet.</p>
+  </div>
+</div>
