@@ -15,7 +15,7 @@ export class ScreeningService {
       id: 1,
       movieId: 1,
       cinemaId: 1,
-      date: '2025-04-25',
+      date: '2026-04-25',
       time: '18:00',
       price: 2500
     },
@@ -23,7 +23,7 @@ export class ScreeningService {
       id: 2,
       movieId: 2,
       cinemaId: 2,
-      date: '2025-04-25',
+      date: '2026-04-25',
       time: '20:00',
       price: 2500
     },
@@ -31,7 +31,7 @@ export class ScreeningService {
       id: 3,
       movieId: 3,
       cinemaId: 1,
-      date: '2025-04-25',
+      date: '2026-04-25',
       time: '10:00',
       price: 2500
     },
@@ -39,7 +39,7 @@ export class ScreeningService {
       id: 4,
       movieId: 4,
       cinemaId: 3,
-      date: '2025-04-26',
+      date: '2026-04-26',
       time: '10:00',
       price: 2500
     },
@@ -47,7 +47,7 @@ export class ScreeningService {
       id: 5,
       movieId: 3,
       cinemaId: 3,
-      date: '2025-04-26',
+      date: '2026-04-26',
       time: '18:00',
       price: 2500
     },
@@ -55,7 +55,7 @@ export class ScreeningService {
       id: 6,
       movieId: 4,
       cinemaId: 1,
-      date: '2025-04-25',
+      date: '2026-04-25',
       time: '18:00',
       price: 2500
     },
@@ -63,7 +63,7 @@ export class ScreeningService {
       id: 7,
       movieId: 5,
       cinemaId: 2,
-      date: '2025-04-25',
+      date: '2026-04-25',
       time: '14:00',
       price: 2500
     },
@@ -71,7 +71,7 @@ export class ScreeningService {
       id: 8,
       movieId: 6,
       cinemaId: 3,
-      date: '2025-04-25',
+      date: '2026-04-25',
       time: '17:00',
       price: 2500
     },
@@ -79,7 +79,7 @@ export class ScreeningService {
       id: 9,
       movieId: 7,
       cinemaId: 1,
-      date: '2025-04-26',
+      date: '2026-04-26',
       time: '22:00',
       price: 2500
     },
@@ -87,7 +87,7 @@ export class ScreeningService {
       id: 10,
       movieId: 8,
       cinemaId: 2,
-      date: '2025-04-26',
+      date: '2026-04-26',
       time: '15:00',
       price: 2500
     },
@@ -95,7 +95,7 @@ export class ScreeningService {
       id: 11,
       movieId: 1,
       cinemaId: 2,
-      date: '2025-04-24',
+      date: '2026-04-24',
       time: '20:00',
       price: 2500
     }
