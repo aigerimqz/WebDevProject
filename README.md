@@ -8,7 +8,7 @@
 
 ## Team Members:  
 🔹 Raimbek Ayaulym  
-🔹 Erniyazova Zhuldyz
-🔹 Aigerim Manat
-🔹 Yasmin Abisheva
+🔹 Erniyazova Zhuldyz  
+🔹 Aigerim Manat  
+🔹 Yasmin Abisheva  
 
